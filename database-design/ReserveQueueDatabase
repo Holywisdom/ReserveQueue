@@ -12,4 +12,9 @@
         queueNote
         queueName
         queueTel
++QueueManage
+    >tableKey
+        queueEmpty
+        queueNumbers
+        queueName
 
