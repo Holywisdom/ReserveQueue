@@ -14,8 +14,20 @@
         queueTel
 +QueueManage
     >tableKey
-        queueEmpty
+        queueIsEmpty
         queueNumbers
         queueName
         queueReference
++QueueLog
+    >queueLogKey
+        tableKey
+        queueKey
+        queueSentNumber
+        queueTimestampReserve
+        queueTimestampStart
+        queueTimestampEnd
+        serviceDuration
+
+
+
 
