@@ -1,0 +1,43 @@
+ใช้ฐานของมูลของ Firebase 
+
+บริการชื่อว่า Cloud Firestore เป็นฐานข้อมูลแบบ NoSQL แบบ Document
+
+โดยโครงสร้างจะเป็นดังนี้
+
+A - Collection
+    B - Document
+        C:D - (C)Field
+              (D)Value
+
+Table - ฐานข้อมูลของโต๊ะภายในร้าน
+    tableKey - คีย์ของแต่ละโต๊ะ
+        tableName - ชื่อโต๊ะ
+        tableSeatNumber - จำนวนที่นั่งได้
+        tableDescription - รายละเอียดของโต๊ะ
+
+Queue - ฐานข้อมูลของคิวของผู้ใช้
+    queueKey - คีย์ของแต่ละคิว
+        queueOwner - คีย์ของผู้ใช้
+        queueTimestamp - เวลาที่ทำการจอง
+        queueSentNumber - จำนวนคนที่มา
+        queueTimestampReserve - เวลาที่จองโต๊ะ
+        queueNote - หมายเหตุ
+        queueName - ชื่อของผู้จอง
+        queueTel - เบอร์โทรศัพท์ของผู้จอง
+
+QueueManage - ฐานข้อมูลของการจัดการคิวของร้าน
+    tableKey - คีย์ของแต่ละโต๊ะ
+        queueIsEmpty - มีคิวว่างอยู่หรือไม่ ที่โต๊ะนี้
+        queueNumbers - รหัสคิวที่กำลังทำการใช้บริการ
+        queueName - ชื่อของผู้จอง
+        queueReference - เก็บ Link ที่ไปดูรายละเอียดของผู้จองคิว
+
+QueueLog - ฐานข้อมูลของการเก็บประวัติของคิว
+    queueLogKey - คีย์ของแต่ละประวัติคิว
+        tableKey - คีย์ของแต่ละโต๊ะ
+        queueKey - คีย์ของแต่ละคิว
+        queueSentNumber - จำนวนคนที่มา
+        queueTimestampReserve - เวลาที่จองโต๊ะ
+        queueTimestampStart - เวลาที่เริ่มใช้บริการ
+        queueTimestampEnd - เวลาที่เลิกใช้บริการ
+        serviceDuration - ระยะเวลาที่ใช้บริการ
