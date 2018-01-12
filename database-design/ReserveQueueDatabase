@@ -3,3 +3,13 @@
         tableName
         tableSeatNumber
         tableDescription
++Queue
+    >queueKey
+        queueOwner
+        queueTimestamp
+        queueSentNumber
+        queueTimestampReserve
+        queueNote
+        queueName
+        queueTel
+
