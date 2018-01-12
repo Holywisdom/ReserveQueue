@@ -17,4 +17,5 @@
         queueEmpty
         queueNumbers
         queueName
+        queueReference
 
