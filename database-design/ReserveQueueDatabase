@@ -1,33 +1,29 @@
 +Table
     >tableKey
-        tableName
-        tableSeatNumber
-        tableDescription
+        tableName(string)
+        tableSeatNumber(int)
+        tableDescription(string)
 +Queue
     >queueKey
-        queueOwner
-        queueTimestamp
-        queueSentNumber
-        queueTimestampReserve
-        queueNote
-        queueName
-        queueTel
+        queueOwner(string)
+        queueTimestamp(timestamp)
+        queueSentNumber(int)
+        queueTimestampReserve(timestamp)
+        queueNote(string)
+        queueName(string)
+        queueTel(string)
 +QueueManage
     >tableKey
         queueIsEmpty
-        queueNumbers
-        queueName
-        queueReference
+        queueNumbers(string)
+        queueName(string)
+        queueReference(reference)
 +QueueLog
     >queueLogKey
-        tableKey
-        queueKey
-        queueSentNumber
-        queueTimestampReserve
-        queueTimestampStart
-        queueTimestampEnd
-        serviceDuration
-
-
-
-
+        tableKey(string)
+        queueKey(string)
+        queueSentNumber(int)
+        queueTimestampReserve(timestamp)
+        queueTimestampStart(timestamp)
+        queueTimestampEnd(timestamp)
+        serviceDuration(int)
