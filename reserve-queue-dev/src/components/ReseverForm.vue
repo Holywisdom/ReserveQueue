@@ -1,13 +1,8 @@
 <template>
-<h1>Eiei</h1>
+  <h1>eiei</h1>
 </template>
-
 <script>
 export default {
-
+  name: 'ReseverForm'
 }
 </script>
-
-<style scoped>
-
-</style>
