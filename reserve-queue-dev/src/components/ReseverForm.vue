@@ -2,12 +2,12 @@
   <div class="bg">
     <h1>Resever Queue</h1>
     <section class="inputForm">
-      <v-input class="inputFormList" size="large" placeholder="Name"> </v-input>
+      <v-input class="inputFormList" size="large" placeholder="Name" v-model="message"></v-input>
       <v-input class="inputFormList" size="large" placeholder="Phone Number"> </v-input>
       <v-input class="inputFormList" size="large" placeholder="Seat Number"> </v-input>
       <v-input class="inputFormList" size="large" placeholder="Time Reserve"> </v-input>
       <v-input class="inputFormList" type="textarea" :rows="4" size="large" placeholder="Note"> </v-input>
-      <v-button class="button" type="primary" size="large">{{message}}</v-button>
+      <v-button class="button" type="primary" size="large" v-on:click="reverseMessage()">Payment</v-button>
     </section>
   </div>
 
@@ -18,6 +18,12 @@ export default {
   data () {
     return {
       message: 'Payment'
+    }
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+      console.log('eiei')
     }
   }
 }
