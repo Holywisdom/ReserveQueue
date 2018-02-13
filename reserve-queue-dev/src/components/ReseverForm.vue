@@ -1,13 +1,13 @@
 <template>
-  <div class="bg">
+  <div class="bg" id="app-5">
     <h1>Resever Queue</h1>
     <section class="inputForm">
-      <v-input class="inputFormList" size="large" placeholder="Name" v-model="message"></v-input>
-      <v-input class="inputFormList" size="large" placeholder="Phone Number"> </v-input>
-      <v-input class="inputFormList" size="large" placeholder="Seat Number"> </v-input>
-      <v-input class="inputFormList" size="large" placeholder="Time Reserve"> </v-input>
-      <v-input class="inputFormList" type="textarea" :rows="4" size="large" placeholder="Note"> </v-input>
-      <v-button class="button" type="primary" size="large" v-on:click="reverseMessage()">Payment</v-button>
+      <v-input class="inputFormList" size="large" placeholder="Name" v-model="CustomerName"></v-input>
+      <v-input class="inputFormList" size="large" placeholder="Phone Number" v-model="PhoneNumber"> </v-input>
+      <v-input class="inputFormList" size="large" placeholder="Seat Number" v-model="SeatNumber"> </v-input>
+      <v-input class="inputFormList" size="large" placeholder="Time Reserve" v-model="TimeReserve"> </v-input>
+      <v-input class="inputFormList" type="textarea" :rows="4" size="large" placeholder="Note" v-model="Note"> </v-input>
+      <v-button class="button" type="primary" size="large" v-on:click.native="reverseMessage">Payment</v-button>
     </section>
   </div>
 
@@ -17,13 +17,21 @@ export default {
   name: 'ReseverForm',
   data () {
     return {
-      message: 'Payment'
+      CustomerName: '',
+      PhoneNumber: '',
+      SeatNumber: '',
+      TimeReserve: '',
+      Note: ''
     }
   },
   methods: {
     reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
-      console.log('eiei')
+      // this.message = this.message.split('').reverse().join('')
+      console.log(this.CustomerName)
+      console.log(this.PhoneNumber)
+      console.log(this.SeatNumber)
+      console.log(this.TimeReserve)
+      console.log(this.Note)
     }
   }
 }
