@@ -1,13 +1,14 @@
 <template>
-  <div class="bg" id="app-5">
-    <h1>Resever Queue</h1>
+  <div class="bg">
+    <h1 class="title is-1">Resever Queue</h1>
+    <h1 class="title is-1">Title 1</h1>
     <section class="inputForm">
-      <v-input class="inputFormList" size="large" placeholder="Name" v-model="CustomerName"></v-input>
-      <v-input class="inputFormList" size="large" placeholder="Phone Number" v-model="PhoneNumber"> </v-input>
-      <v-input class="inputFormList" size="large" placeholder="Seat Number" v-model="SeatNumber"> </v-input>
-      <v-input class="inputFormList" size="large" placeholder="Time Reserve" v-model="TimeReserve"> </v-input>
-      <v-input class="inputFormList" type="textarea" :rows="4" size="large" placeholder="Note" v-model="Note"> </v-input>
-      <v-button class="button" type="primary" size="large" v-on:click.native="reverseMessage">Payment</v-button>
+      <input class="inputFormList" size="large" placeholder="Name" v-model="CustomerName">
+      <input class="inputFormList" size="large" placeholder="Phone Number" v-model="PhoneNumber">
+      <input class="inputFormList" size="large" placeholder="Seat Number" v-model="SeatNumber">
+      <input class="inputFormList" size="large" placeholder="Time Reserve" v-model="TimeReserve">
+      <input class="inputFormList" type="textarea" :rows="4" size="large" placeholder="Note" v-model="Note">
+      <button class="button" type="primary" size="large" v-on:click.native="reverseMessage">Payment</button>
     </section>
   </div>
 
@@ -38,7 +39,7 @@ export default {
 </script>
 <style scoped>
 .bg {
-  background-image: url("../assets/stanford-smith-369293.jpg") ;
+  /* background-image: url("../assets/stanford-smith-369293.jpg") ; */
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
@@ -67,11 +68,11 @@ export default {
   height: 100px;
 }
 
-h1 {
+/* h1 {
   margin: 50px 0 0 0 ;
   color: #ffffff;
   text-align: center;
   font-size: 50px;
-}
+} */
 
 </style>
