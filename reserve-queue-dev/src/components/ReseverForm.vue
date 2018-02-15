@@ -107,14 +107,14 @@
         <div class="box">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+              <figure class="image is-128x128 is-16by9">
+                <img src="../assets/brooke-lark-93583.jpg" alt="Image">
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
                   <br>
                   Eiei
                 </p>
@@ -127,14 +127,14 @@
         <div class="box">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+              <figure class="image is-128x128 is-16by9">
+                <img src="../assets/nils-stahl-188467.jpg" alt="Image">
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
                   <br>
                   Eiei
                 </p>
@@ -147,14 +147,14 @@
         <div class="box">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+              <figure class="image is-128x128 is-16by9">
+                <img src="../assets/breather-163397.jpg" alt="Image">
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
                   <br>
                   Eiei
                 </p>
@@ -167,14 +167,14 @@
         <div class="box">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+              <figure class="image is-128x128 is-16by9">
+                <img src="../assets/thibault-copleux-272762.jpg" alt="Image">
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
                   <br>
                   Eiei
                 </p>
