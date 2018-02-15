@@ -114,9 +114,14 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">Table 1</strong>
                   <br>
-                  Eiei
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <br>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                  </label>
                 </p>
               </div>
             </div>
@@ -134,9 +139,10 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">Table 2</strong>
                   <br>
-                  Eiei
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <br>
                 </p>
               </div>
             </div>
@@ -154,9 +160,10 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">Table 3</strong>
                   <br>
-                  Eiei
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <br>
                 </p>
               </div>
             </div>
@@ -174,9 +181,10 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                  <strong class="TableName">Table 4</strong>
                   <br>
-                  Eiei
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <br>
                 </p>
               </div>
             </div>
@@ -260,6 +268,10 @@ export default {
 
 .magin {
   height: 100px;
+}
+
+.TableName {
+  font-size: 24px;
 }
 
 /* h1 {
