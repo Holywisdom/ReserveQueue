@@ -3,7 +3,7 @@
     <h1 class="title is-1">Resever Queue</h1>
     <h1 class="title is-3">Pick Time</h1>
     <div class="field">
-      <span> Hours : </span>
+      <strong class="PickTimeText"> Hours : </strong>
       <div class="control">
         <div class="select is-primary">
           <select>
@@ -32,7 +32,7 @@
             <option>23</option>
           </select>
         </div>
-        <span> Minutes : </span>
+        <strong class="PickTimeText"> Minutes : </strong>
         <div class="control">
         <div class="select is-primary">
           <select>
@@ -258,6 +258,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.PickTimeText {
+  font-size: 24px;
+  margin: 0 8px 0 12px;
+
 }
 
 .field {
