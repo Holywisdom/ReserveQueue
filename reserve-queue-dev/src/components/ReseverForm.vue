@@ -101,7 +101,7 @@
         </div>
       </div>
     </div>
-    <h1 class="title is-3">Select Table</h1>
+    <h1 class="title is-3" id="LeftHeader">Select Table</h1>
     <div class="columns is-multiline">
       <div class="column is-half">
         <div class="box">
@@ -114,9 +114,11 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 1</strong>
+                  <strong class="TableName">Table 1 - 3 Seats</strong>
                   <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <span class="tag is-success">Available</span>
+                  <br>
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed</small>
                   <br>
                 </p>
               </div>
@@ -139,9 +141,11 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 2</strong>
+                  <strong class="TableName">Table 2 - 8 Seats</strong>
                   <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
+                  <span class="tag tag is-danger">Busy</span>
+                  <br>
+                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed</small>
                   <br>
                 </p>
               </div>
@@ -164,7 +168,9 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 3</strong>
+                  <strong class="TableName">Table 3 - 4 Seats</strong>
+                  <br>
+                  <span class="tag is-success">Available</span>
                   <br>
                   <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
                   <br>
@@ -189,7 +195,9 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 4</strong>
+                  <strong class="TableName">Table 4 - 2 Seats</strong>
+                  <br>
+                  <span class="tag is-success">Available</span>
                   <br>
                   <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
                   <br>
@@ -204,7 +212,7 @@
         </div>
       </div>
     </div>
-    <h1 class="title is-3">Your Deteil</h1>
+    <h1 class="title is-3" id="DetailHeader">Your Deteil</h1>
     <section class="inputForm">
       <input class="input is-primary" type="text" placeholder="Name" v-model="CustomerName">
       <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
@@ -263,10 +271,9 @@ export default {
 }
 
 .inputForm {
-  width: 35%;
+  width: 85%;
   text-align: center;
-  align-self: center;
-  margin-top: 2% ;
+  align-self: left;
 }
 
 .input{
@@ -296,4 +303,14 @@ export default {
   margin-left: 8px;
   font-size: 12px;
 }
+
+#LeftHeader {
+  align-self: left;
+}
+
+#DetailHeader {
+  align-self: left;
+  margin-top: 3.5em;
+}
+
 </style>
