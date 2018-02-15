@@ -118,12 +118,12 @@
                   <br>
                   <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
                   <br>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    Remember me
-                  </label>
                 </p>
               </div>
+              <label class="checkbox">
+                <span class=ReserveText> Reserve </span>
+                <input type="checkbox" class="InputCheckbox">
+              </label>
             </div>
           </article>
         </div>
@@ -145,6 +145,10 @@
                   <br>
                 </p>
               </div>
+              <label class="checkbox">
+                <span class=ReserveText> Reserve </span>
+                <input type="checkbox" class="InputCheckbox">
+              </label>
             </div>
           </article>
         </div>
@@ -166,6 +170,10 @@
                   <br>
                 </p>
               </div>
+              <label class="checkbox">
+                <span class=ReserveText> Reserve </span>
+                <input type="checkbox" class="InputCheckbox">
+              </label>
             </div>
           </article>
         </div>
@@ -187,6 +195,10 @@
                   <br>
                 </p>
               </div>
+              <label class="checkbox">
+                <span class=ReserveText> Reserve </span>
+                <input type="checkbox" class="InputCheckbox">
+              </label>
             </div>
           </article>
         </div>
@@ -274,11 +286,14 @@ export default {
   font-size: 24px;
 }
 
-/* h1 {
-  margin: 50px 0 0 0 ;
-  color: #ffffff;
-  text-align: center;
-  font-size: 50px;
-} */
+.checkbox {
+  display: flex ;
+  flex-direction: row-reverse ;
+  align-content: center;
+}
 
+.ReserveText{
+  margin-left: 8px;
+  font-size: 12px;
+}
 </style>
