@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title is-1">Resever Queue</h1>
+    <h1 class="title is-1" id="TitleHeader">Resever Queue</h1>
     <h1 class="title is-3">Pick Time</h1>
     <div class="field">
       <strong class="PickTimeText"> Hours : </strong>
@@ -260,6 +260,10 @@ export default {
   align-items: center;
 }
 
+#TitleHeader {
+  margin-top: 24px;
+}
+
 .PickTimeText {
   font-size: 24px;
   margin: 0 8px 0 12px;
@@ -308,6 +312,9 @@ export default {
 .ReserveText{
   margin-left: 8px;
   font-size: 12px;
+}
+.tag {
+  margin-bottom: 4px;
 }
 
 #LeftHeader {
