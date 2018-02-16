@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="title is-1" id="TitleHeader">Resever Queue</h1>
-    <h1 class="title is-3" id="LeftHeader">Select Table</h1>
+    <h1 class="title is-3" id="SelectHeader">Select Table</h1>
     <div class="columns is-multiline">
       <div class="column is-half">
         <div class="box">
@@ -154,7 +154,6 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 1024px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,12 +161,6 @@ export default {
 
 #TitleHeader {
   margin-top: 24px;
-}
-
-.PickTimeText {
-  font-size: 24px;
-  margin: 0 8px 0 12px;
-
 }
 
 .field {
@@ -183,7 +176,8 @@ export default {
 .inputForm {
   width: 85%;
   text-align: center;
-  align-self: left;
+  align-self: center;
+  margin-bottom: 1.5em;
 }
 
 .input{
@@ -217,13 +211,12 @@ export default {
   margin-bottom: 4px;
 }
 
-#LeftHeader {
-  align-self: left;
+#SelectHeader {
+  align-self: center;
 }
 
 #DetailHeader {
-  align-self: left;
-  margin-top: 3.5em;
+  align-self: center;
 }
 
 </style>
