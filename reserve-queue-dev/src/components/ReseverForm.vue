@@ -1,6 +1,18 @@
 <template>
   <div class="container">
-    <h1 class="title is-1" id="TitleHeader">Resever Queue</h1>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Boing Restaurant
+          </h1>
+          <h2 class="subtitle">
+            Resever Queue System
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- <h1 class="title is-1" id="TitleHeader">Resever Queue</h1> -->
     <h1 class="title is-3" id="SelectHeader">Select Table</h1>
     <div class="tabs is-medium">
       <ul>
@@ -22,7 +34,7 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 1 - 3 Seats</strong>
+                  <strong class="TableName">Table 1</strong>
                   <br>
                   <span class="tag is-success">Available</span>
                   <br>
@@ -49,7 +61,7 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 2 - 8 Seats</strong>
+                  <strong class="TableName">Table 2</strong>
                   <br>
                   <span class="tag tag is-danger">Busy</span>
                   <br>
@@ -76,7 +88,7 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 3 - 4 Seats</strong>
+                  <strong class="TableName">Table 3</strong>
                   <br>
                   <span class="tag is-success">Available</span>
                   <br>
@@ -103,7 +115,7 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong class="TableName">Table 4 - 2 Seats</strong>
+                  <strong class="TableName">Table 4</strong>
                   <br>
                   <span class="tag is-success">Available</span>
                   <br>
@@ -174,8 +186,8 @@ export default {
   align-items: center;
 }
 
-#TitleHeader {
-  margin-top: 24px;
+.hero {
+  width: 100%;
 }
 
 .field {
@@ -227,6 +239,7 @@ export default {
 }
 
 #SelectHeader {
+  margin-top: 24px;
   align-self: center;
 }
 
