@@ -4,10 +4,10 @@
     <h1 class="title is-3" id="SelectHeader">Select Table</h1>
     <div class="tabs is-medium">
       <ul>
-        <li class="is-active"><a>Pictures</a></li>
-        <li><a>Music</a></li>
-        <li><a>Videos</a></li>
-        <li><a>Documents</a></li>
+        <li class="is-active"><a>2 Seats</a></li>
+        <li><a>4 Seats</a></li>
+        <li><a>6 Seats</a></li>
+        <li><a>8 Seats</a></li>
       </ul>
     </div>
     <div class="columns is-multiline">
