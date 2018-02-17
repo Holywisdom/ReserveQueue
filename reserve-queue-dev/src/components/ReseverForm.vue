@@ -13,7 +13,7 @@
       </div>
     </section>
     <!-- <h1 class="title is-1" id="TitleHeader">Resever Queue</h1> -->
-    <h1 class="title is-3" id="SelectHeader">Select Table</h1>
+    <h1 class="title is-3" id="SelectHeader">Select Seat and Table</h1>
     <div class="tabs is-medium">
       <ul>
         <li class="is-active"><a>2 Seats</a></li>
@@ -132,7 +132,7 @@
         </div>
       </div>
     </div>
-    <h1 class="title is-3" id="DetailHeader">Your Deteil</h1>
+    <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
     <section class="inputForm">
       <input class="input is-primary" type="text" placeholder="Name" v-model="CustomerName">
       <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
