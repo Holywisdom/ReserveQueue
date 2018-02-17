@@ -121,10 +121,16 @@
       <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
       <button class="button is-primary" type="primary" size="large" v-on:click.native="reverseMessage">Payment</button>
     </section>
+  <HelloWorld></HelloWorld>
   </div>
 
 </template>
 <script>
+// https://www.google.co.th/search?client=safari&rls=en&q=vue-bulma-expanding&ie=UTF-8&oe=UTF-8&gws_rd=cr&dcr=0&ei=yESHWoGHCYfcvgTbs57ACA
+// import Vue from 'vue'
+import HelloWorld from './HelloWorld.vue'
+// Vue.component('HelloWorld', HelloWorld)
+
 export default {
   name: 'ReseverForm',
   data () {
@@ -145,7 +151,8 @@ export default {
       console.log(this.TimeReserve)
       console.log(this.Note)
     }
-  }
+  },
+  components: {HelloWorld}
 }
 </script>
 <style scoped>
