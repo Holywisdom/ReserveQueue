@@ -2,6 +2,14 @@
   <div class="container">
     <h1 class="title is-1" id="TitleHeader">Resever Queue</h1>
     <h1 class="title is-3" id="SelectHeader">Select Table</h1>
+    <div class="tabs is-medium">
+      <ul>
+        <li class="is-active"><a>Pictures</a></li>
+        <li><a>Music</a></li>
+        <li><a>Videos</a></li>
+        <li><a>Documents</a></li>
+      </ul>
+    </div>
     <div class="columns is-multiline">
       <div class="column is-half">
         <div class="box">
