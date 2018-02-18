@@ -2,12 +2,20 @@
     >tableKey
         tableName(string)
         tableSeatNumber(int)
+        tableSeatType(int)
         tableDescription(string)
+
++TableTimeSlot
+    >tableKey
+        slot1(bool)
+        slot2(bool)
+        slot3(bool)
 +Queue
     >queueKey
         queueOwner(string)
         queueTimestamp(timestamp)
         queueSentNumber(int)
+        queueTimeSlot(string)
         queueTimestampReserve(timestamp)
         queueNote(string)
         queueName(string)
