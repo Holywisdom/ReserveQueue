@@ -139,7 +139,7 @@
       <input class="input is-primary" type="text" placeholder="Seat Number" v-model="SeatNumber">
       <input class="input is-primary" type="text" placeholder="Time Reserve" v-model="TimeReserve">
       <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
-      <button class="button is-primary" type="primary" size="large" v-on:click.native="reverseMessage">Payment</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
     </section>
   <HelloWorld></HelloWorld>
   </div>
