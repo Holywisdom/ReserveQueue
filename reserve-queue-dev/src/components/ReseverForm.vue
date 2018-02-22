@@ -142,6 +142,20 @@
       <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
     </section>
   <HelloWorld></HelloWorld>
+  <div class="modal" v-bind:class="{'is-active': ModalActive}">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <section class="inputForm">
+      <input class="input is-primary" type="text" placeholder="Name" v-model="CustomerName">
+      <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
+      <input class="input is-primary" type="text" placeholder="Seat Number" v-model="SeatNumber">
+      <input class="input is-primary" type="text" placeholder="Time Reserve" v-model="TimeReserve">
+      <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
+      <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
+    </section>
+  </div>
+  <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
+</div>
   </div>
 
 </template>
@@ -159,7 +173,8 @@ export default {
       PhoneNumber: '',
       SeatNumber: '',
       TimeReserve: '',
-      Note: ''
+      Note: '',
+      ModalActive: false
     }
   },
   methods: {
@@ -170,6 +185,10 @@ export default {
       console.log(this.SeatNumber)
       console.log(this.TimeReserve)
       console.log(this.Note)
+      this.ModalActive = true
+    },
+    ModalClose: function () {
+      this.ModalActive = false
     }
   },
   components: {HelloWorld}
