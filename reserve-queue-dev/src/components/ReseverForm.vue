@@ -131,6 +131,9 @@
           </article>
         </div>
       </div>
+      <div class="column is-half">
+        <TableCard message="Table 5" detail="Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have"></TableCard>
+      </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
     <section class="inputForm">
@@ -156,6 +159,7 @@
 // import Vue from 'vue'
 import HelloWorld from './HelloWorld.vue'
 import SlotCard from './SlotCard.vue'
+import TableCard from './TableCard.vue'
 // Vue.component('HelloWorld', HelloWorld)
 
 export default {
@@ -184,7 +188,7 @@ export default {
       this.ModalActive = false
     }
   },
-  components: {HelloWorld, SlotCard}
+  components: {HelloWorld, SlotCard, TableCard}
 }
 </script>
 <style scoped>
