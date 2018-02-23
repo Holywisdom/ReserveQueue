@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Welcome to Boing Restaurant
+            Welcome to xxx Restaurant
           </h1>
           <h2 class="subtitle">
             Resever Queue System
@@ -145,14 +145,7 @@
   <div class="modal" v-bind:class="{'is-active': ModalActive}">
   <div class="modal-background"></div>
   <div class="modal-content">
-    <section class="inputForm">
-      <input class="input is-primary" type="text" placeholder="Name" v-model="CustomerName">
-      <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
-      <input class="input is-primary" type="text" placeholder="Seat Number" v-model="SeatNumber">
-      <input class="input is-primary" type="text" placeholder="Time Reserve" v-model="TimeReserve">
-      <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
-      <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
-    </section>
+    <SlotCard></SlotCard>
   </div>
   <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
 </div>
@@ -163,6 +156,7 @@
 // https://www.google.co.th/search?client=safari&rls=en&q=vue-bulma-expanding&ie=UTF-8&oe=UTF-8&gws_rd=cr&dcr=0&ei=yESHWoGHCYfcvgTbs57ACA
 // import Vue from 'vue'
 import HelloWorld from './HelloWorld.vue'
+import SlotCard from './SlotCard.vue'
 // Vue.component('HelloWorld', HelloWorld)
 
 export default {
@@ -191,7 +185,7 @@ export default {
       this.ModalActive = false
     }
   },
-  components: {HelloWorld}
+  components: {HelloWorld, SlotCard}
 }
 </script>
 <style scoped>
