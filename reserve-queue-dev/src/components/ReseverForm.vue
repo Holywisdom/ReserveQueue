@@ -141,14 +141,13 @@
       <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
       <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
     </section>
-  <HelloWorld></HelloWorld>
   <div class="modal" v-bind:class="{'is-active': ModalActive}">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <SlotCard></SlotCard>
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <SlotCard></SlotCard>
+    </div>
+    <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
   </div>
-  <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
-</div>
   </div>
 
 </template>
