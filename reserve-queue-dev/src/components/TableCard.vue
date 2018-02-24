@@ -3,17 +3,17 @@
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128 is-16by9">
-          <img src="../assets/brooke-lark-93583.jpg" alt="Image">
+          <img v-bind:src='ImagePath' alt="Image">
         </figure>
       </div>
       <div class="media-content">
         <div class="content">
           <p>
-            <strong class="TableName">{{message}}</strong>
+            <strong class="TableName">{{TableName}}</strong>
             <br>
-            <span class="tag is-success">Available</span>
+            <span class="tag" v-bind:class="[Available ? 'is-success' : 'is-danger']">Available</span>
             <br>
-            <small>{{detail}}</small>
+            <small>{{Description}}</small>
             <br>
           </p>
         </div>
@@ -29,7 +29,7 @@
 <script>
 export default {
   name: 'TableCard',
-  props: ['message', 'detail']
+  props: ['TableName', 'Description', 'Available', 'ImagePath']
 }
 </script>
 

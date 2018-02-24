@@ -23,116 +23,8 @@
       </ul>
     </div>
     <div class="columns is-multiline">
-      <div class="column is-half">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-128x128 is-16by9">
-                <img src="../assets/brooke-lark-93583.jpg" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong class="TableName">Table 1</strong>
-                  <br>
-                  <span class="tag is-success">Available</span>
-                  <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed</small>
-                  <br>
-                </p>
-              </div>
-              <label class="checkbox">
-                <span class=ReserveText> Reserve </span>
-                <input type="checkbox" class="InputCheckbox">
-              </label>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column is-half">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-128x128 is-16by9">
-                <img src="../assets/nils-stahl-188467.jpg" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong class="TableName">Table 2</strong>
-                  <br>
-                  <span class="tag tag is-danger">Busy</span>
-                  <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed</small>
-                  <br>
-                </p>
-              </div>
-              <label class="checkbox">
-                <span class=ReserveText> Reserve </span>
-                <input type="checkbox" class="InputCheckbox">
-              </label>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column is-half">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-128x128 is-16by9">
-                <img src="../assets/breather-163397.jpg" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong class="TableName">Table 3</strong>
-                  <br>
-                  <span class="tag is-success">Available</span>
-                  <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
-                  <br>
-                </p>
-              </div>
-              <label class="checkbox">
-                <span class=ReserveText> Reserve </span>
-                <input type="checkbox" class="InputCheckbox">
-              </label>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column is-half">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-128x128 is-16by9">
-                <img src="../assets/thibault-copleux-272762.jpg" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong class="TableName">Table 4</strong>
-                  <br>
-                  <span class="tag is-success">Available</span>
-                  <br>
-                  <small>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</small>
-                  <br>
-                </p>
-              </div>
-              <label class="checkbox">
-                <span class=ReserveText> Reserve </span>
-                <input type="checkbox" class="InputCheckbox">
-              </label>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column is-half">
-        <TableCard message="Table 5" detail="Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have"></TableCard>
+      <div class="column is-half" v-for="(item, index) in items" :key="index">
+        <TableCard  v-bind:TableName=item.TableName v-bind:Description=item.Description  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath></TableCard>
       </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
@@ -166,6 +58,12 @@ export default {
   name: 'ReseverForm',
   data () {
     return {
+      items: [
+        { TableName: 'Table 1', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg') },
+        { TableName: 'Table 2', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg') },
+        { TableName: 'Table 3', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg') },
+        { TableName: 'Table 4', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg') }
+      ],
       CustomerName: '',
       PhoneNumber: '',
       SeatNumber: '',
