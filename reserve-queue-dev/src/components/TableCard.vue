@@ -25,7 +25,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <SlotCard></SlotCard>
+        <SlotCard v-bind:TableName=TableName v-on:Modal="ModalClose"></SlotCard>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
