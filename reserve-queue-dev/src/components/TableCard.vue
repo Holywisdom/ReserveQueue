@@ -17,19 +17,43 @@
             <br>
           </p>
         </div>
-        <label class="checkbox">
-          <span class=ReserveText> Reserve </span>
-          <input type="checkbox" class="InputCheckbox">
-        </label>
+        <div class="checkbox">
+          <button class="button is-primary is-small" v-on:click="ModalOpen">Reserve</button>
+        </div>
       </div>
     </article>
+    <div class="modal" v-bind:class="{'is-active': ModalActive}">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <SlotCard></SlotCard>
+      </div>
+      <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
+    </div>
   </div>
 </template>
 
 <script>
+
+import SlotCard from './SlotCard.vue'
+
 export default {
   name: 'TableCard',
-  props: ['TableName', 'Description', 'Available', 'ImagePath']
+  props: ['TableName', 'Description', 'Available', 'ImagePath'],
+  data () {
+    return {
+      ModalActive: false
+    }
+  },
+  methods: {
+    ModalOpen: function () {
+      this.ModalActive = true
+    },
+    ModalClose: function () {
+      this.ModalActive = false
+    }
+  },
+  components: {SlotCard}
+
 }
 </script>
 
@@ -53,4 +77,10 @@ export default {
   flex-direction: row-reverse ;
   align-content: center;
 }
+
+.button{
+  display: flex ;
+  flex-direction: row-reverse ;
+}
+
 </style>

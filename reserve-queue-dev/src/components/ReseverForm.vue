@@ -36,13 +36,6 @@
       <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
       <button class="button is-primary" type="primary" size="large" v-on:click="reverseMessage">Payment</button>
     </section>
-  <div class="modal" v-bind:class="{'is-active': ModalActive}">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <SlotCard></SlotCard>
-    </div>
-    <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
-  </div>
   </div>
 
 </template>
@@ -50,7 +43,6 @@
 // https://www.google.co.th/search?client=safari&rls=en&q=vue-bulma-expanding&ie=UTF-8&oe=UTF-8&gws_rd=cr&dcr=0&ei=yESHWoGHCYfcvgTbs57ACA
 // import Vue from 'vue'
 import HelloWorld from './HelloWorld.vue'
-import SlotCard from './SlotCard.vue'
 import TableCard from './TableCard.vue'
 // Vue.component('HelloWorld', HelloWorld)
 
@@ -68,8 +60,7 @@ export default {
       PhoneNumber: '',
       SeatNumber: '',
       TimeReserve: '',
-      Note: '',
-      ModalActive: false
+      Note: ''
     }
   },
   methods: {
@@ -80,13 +71,9 @@ export default {
       console.log(this.SeatNumber)
       console.log(this.TimeReserve)
       console.log(this.Note)
-      this.ModalActive = true
-    },
-    ModalClose: function () {
-      this.ModalActive = false
     }
   },
-  components: {HelloWorld, SlotCard, TableCard}
+  components: {HelloWorld, TableCard}
 }
 </script>
 <style scoped>
