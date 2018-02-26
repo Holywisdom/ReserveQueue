@@ -8,80 +8,26 @@
     <div class="card-content">
       <div class="content">
         <div class="columns is-multiline is-mobile">
-          <div class="column is-two-quarter">
-            <code> is-one-quarter </code>
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            <code> is-one-quarter </code>
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            <code> is-one-quarter </code>
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            <code> is-one-quarter </code>
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            <code> is-one-quarter </code>
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
-          </div>
-                    <div class="column is-two-quarter">
-            11:00 - 11.15
+          <div class="column is-one-quarter">
+            <a class="button is-light">04:00 - 04:15</a>
           </div>
         </div>
       </div>
@@ -97,6 +43,10 @@
 export default {
   name: 'SlotCard',
   props: ['TableName'],
+  data () {
+    return {
+    }
+  },
   methods: {
     ModalClose: function () {
       this.$emit('Modal')
@@ -108,7 +58,7 @@ export default {
 <style scoped>
 
 .content{
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 </style>
