@@ -33,8 +33,8 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Done</a>
-      <a href="#" class="card-footer-item" v-on:click="ModalClose">Cancel</a>
+      <a href="#DetailHeader" class="card-footer-item" v-on:click="ModalClose">Done</a>
+      <a href="" class="card-footer-item" v-on:click="ModalClose">Cancel</a>
     </footer>
   </div>
 </template>
