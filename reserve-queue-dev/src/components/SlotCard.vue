@@ -7,10 +7,83 @@
     </header>
     <div class="card-content">
       <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-        <br>
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-two-quarter">
+            <code> is-one-quarter </code>
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            <code> is-one-quarter </code>
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            <code> is-one-quarter </code>
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            <code> is-one-quarter </code>
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            <code> is-one-quarter </code>
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+                    <div class="column is-two-quarter">
+            11:00 - 11.15
+          </div>
+        </div>
       </div>
     </div>
     <footer class="card-footer">
@@ -33,5 +106,9 @@ export default {
 </script>
 
 <style scoped>
+
+.content{
+  overflow: auto;
+}
 
 </style>
