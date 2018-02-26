@@ -248,8 +248,12 @@ export default {
 
 <style scoped>
 
-.content{
-  overflow-x: auto;
+.card-header-title {
+  font-size: 22px;
+}
+
+.card-footer-item {
+  font-size: 14px;
 }
 
 </style>
