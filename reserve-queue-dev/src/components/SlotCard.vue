@@ -9,7 +9,9 @@
       <div class="content">
         <div class="columns is-multiline is-mobile">
           <div class="column is-half" v-for="(value, key) in slot" v-bind:key=key>
-            <a class="button" v-bind:class="[value ? 'is-black' : 'is-light']" v-on:click="Select(key)" >{{time[key]}}</a>
+            <a class="button is-black" v-if="value === true">{{time[key]}}</a>
+            <a class="button is-light" v-if="value === false" v-on:click="Select(key)">{{time[key]}}</a>
+            <a class="button is-primary" v-if="value === 'selected'" v-on:click="UnSelect(key)">{{time[key]}}</a>
           </div>
         </div>
       </div>
@@ -222,6 +224,9 @@ export default {
         'slot94': '23:15-23:30',
         'slot95': '23:30-23:45',
         'slot96': '23:45-00:00'
+      },
+      select: {
+
       }
     }
   },
@@ -230,7 +235,12 @@ export default {
       this.$emit('Modal')
     },
     Select: function (key) {
-      console.log(key)
+      this.slot[key] = 'selected'
+      this.select[key] = true
+    },
+    UnSelect: function (key) {
+      this.slot[key] = false
+      delete this.select[key]
     }
   }
 }
