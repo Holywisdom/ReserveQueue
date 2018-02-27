@@ -15,15 +15,16 @@
     <!-- <h1 class="title is-1" id="TitleHeader">Resever Queue</h1> -->
     <h1 class="title is-3" id="SelectHeader">Select Seat and Table</h1>
     <div class="tabs is-medium">
-      <ul>
-        <li class="is-active"><a>2 Seats</a></li>
-        <li><a>4 Seats</a></li>
+      <ul v-for="(item, index) in SeatList" :key="index">
+        <li v-if="SeatSelect[index] === true" v-on:click="ActiveSeatSelect(index)" class="is-active"><a>{{item + " Seat"}}</a></li>
+        <li v-else v-on:click="ActiveSeatSelect(index)" ><a>{{item + " Seat"}}</a></li>
+        <!-- <li><a>4 Seats</a></li>
         <li><a>6 Seats</a></li>
-        <li><a>8 Seats</a></li>
+        <li><a>8 Seats</a></li> -->
       </ul>
     </div>
     <div class="columns is-multiline">
-      <div class="column is-half" v-for="(item, index) in items" :key="index">
+      <div class="column is-half" v-for="(item, index) in Seats_2" :key="index">
         <TableCard  v-bind:TableName=item.TableName v-bind:Description=item.Description  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath></TableCard>
       </div>
     </div>
@@ -50,7 +51,9 @@ export default {
   name: 'ReseverForm',
   data () {
     return {
-      items: [
+      SeatList: [2, 4, 6, 8],
+      SeatSelect: [true, false, false, false],
+      Seats_2: [
         { TableName: 'Table 1', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg') },
         { TableName: 'Table 2', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg') },
         { TableName: 'Table 3', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg') },
@@ -71,6 +74,10 @@ export default {
       console.log(this.SeatNumber)
       console.log(this.TimeReserve)
       console.log(this.Note)
+    },
+    ActiveSeatSelect: function (index) {
+      this.SeatSelect = [false, false, false, false]
+      this.SeatSelect[index] = true
     }
   },
   components: {HelloWorld, TableCard}
