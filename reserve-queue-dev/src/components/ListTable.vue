@@ -1,11 +1,46 @@
 <template>
   <div class="container">
-    <h1 class="title is-3">Table List</h1>
-    <tr>
-      <td>
-        eiei
-      </td>
-    </tr>
+    <h1 class="title is-3" id="DetailHeader">Table List</h1>
+    <table class="table is-bordered is-fullwidth">
+      <thead>
+        <tr>
+          <th>Seat Type</th>
+          <th>Table Name</th>
+          <th>Description</th>
+          <th>Image Preview</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Seat Type</th>
+          <th>Table Name</th>
+          <th>Description</th>
+          <th>Image Preview</th>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <th>2</th>
+          <td>Table 38</td>
+          <td>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</td>
+          <td>
+            <figure class="image is-64x64 is-16by9">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Table 38</td>
+          <td>Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have</td>
+          <td>
+            <figure class="image is-64x64 is-16by9">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 <script>
@@ -54,10 +89,15 @@ export default {
 <style scoped>
 
 .container {
-  width: 100%;
+  overflow-x: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#DetailHeader {
+  margin-top: 24px;
+  align-self: center;
 }
 
 </style>
