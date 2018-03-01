@@ -31,15 +31,26 @@
             </figure>
           </td>
           <td>
-            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
+            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.SeatType, item.TableName, item.Description, item.ImagePath)">
             <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
           </td>
         </tr>
       </tbody>
     </table>
+    <div class="modal" v-bind:class="{'is-active': ModalActive}">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <EditTable v-bind:TableName="TableName" v-bind:SeatType="SeatType" v-bind:Description="Description" v-bind:ImagePath="ImagePath"  v-on:Modal="ModalClose"></EditTable>
+      </div>
+      <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
+    </div>
   </div>
 </template>
 <script>
+
+import CreateTable from './CreateTable.vue'
+import EditTable from './EditTable.vue'
+
 export default {
   name: 'ListTable',
   data () {
@@ -67,14 +78,30 @@ export default {
           { TableName: 'Table 5', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 8 },
           { TableName: 'Table 6', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 8 }
         ]
-      }
+      },
+      ModalActive: false,
+      TableName: '',
+      Description: '',
+      SeatType: '',
+      ImagePath: ''
     }
   },
   methods: {
     eiei: function () {
       console.log('eiei')
+    },
+    ModalOpen: function (SeatType, TableName, Description, ImagePath) {
+      this.ModalActive = true
+      this.SeatType = SeatType
+      this.TableName = TableName
+      this.Description = Description
+      this.ImagePath = ImagePath
+    },
+    ModalClose: function () {
+      this.ModalActive = false
     }
-  }
+  },
+  components: {EditTable, CreateTable}
 }
 </script>
 
