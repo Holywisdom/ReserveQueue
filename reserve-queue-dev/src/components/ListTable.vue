@@ -8,6 +8,7 @@
           <th>Table Name</th>
           <th>Description</th>
           <th>Image Preview</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tfoot>
@@ -16,6 +17,7 @@
           <th>Table Name</th>
           <th>Description</th>
           <th>Image Preview</th>
+          <th>Action</th>
         </tr>
       </tfoot>
       <tbody v-for="(items, index) in Seat" :key="index">
@@ -27,6 +29,10 @@
             <figure class="image is-64x64 is-16by9">
               <img v-bind:src='item.ImagePath' alt="Image">
             </figure>
+          </td>
+          <td>
+            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
+            <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
           </td>
         </tr>
       </tbody>
@@ -65,11 +71,8 @@ export default {
     }
   },
   methods: {
-    CreateTable: function () {
-      console.log(this.TableName)
-      console.log(this.TableSeatNumber)
-      console.log(this.TableDescription)
-      console.log(this.ImageLink)
+    eiei: function () {
+      console.log('eiei')
     }
   }
 }
