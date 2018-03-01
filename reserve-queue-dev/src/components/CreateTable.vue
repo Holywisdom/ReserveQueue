@@ -1,6 +1,17 @@
 <template>
   <div class="container">
-    <h1 class="title is-3" id="DetailHeader">Create Table</h1>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            xxx Restaurant
+          </h1>
+          <h2 class="subtitle">
+            Create Table
+          </h2>
+        </div>
+      </div>
+    </section>
     <section class="inputForm">
       <input class="input is-primary" type="text" placeholder="Table Name" v-model="TableName">
       <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="TableSeatNumber">
@@ -53,11 +64,20 @@ export default {
   text-align: center;
   align-self: center;
   margin-bottom: 1.5em;
+  margin-top: 1.5em;
 }
 
 .input{
   width: 100% ;
   margin: 8px 0 8px 0;
+}
+
+.hero {
+  width: 100% !important ;
+}
+
+.button {
+  margin-top: 4px;
 }
 
 </style>
