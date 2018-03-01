@@ -1,6 +1,17 @@
 <template>
   <div class="container">
-    <h1 class="title is-3" id="DetailHeader">Table List</h1>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            xxx Restaurant
+          </h1>
+          <h2 class="subtitle">
+            Table List
+          </h2>
+        </div>
+      </div>
+    </section>
     <table class="table is-bordered is-fullwidth">
       <thead>
         <tr>
@@ -118,6 +129,14 @@ export default {
 #DetailHeader {
   margin-top: 24px;
   align-self: center;
+}
+
+#CreateHeader {
+  align-self: center;
+}
+
+.hero {
+  width: 100% !important ;
 }
 
 </style>
