@@ -15,32 +15,34 @@
     <table class="table is-bordered is-fullwidth">
       <thead>
         <tr>
+          <th>Time</th>
           <th>Seat Type</th>
           <th>Table Name</th>
-          <th>Description</th>
-          <th>Image Preview</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Note</th>
           <th>Action</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
+          <th>Time</th>
           <th>Seat Type</th>
           <th>Table Name</th>
-          <th>Description</th>
-          <th>Image Preview</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Note</th>
           <th>Action</th>
         </tr>
       </tfoot>
-      <tbody v-for="(items, index) in Seat" :key="index">
-        <tr v-for="(item, index_item) in items" :key="index_item">
-          <th>{{item.SeatType}}</th>
+      <tbody v-for="(item, index) in Time" :key="index">
+        <tr>
+          <th>{{item.Time}}</th>
+          <td>{{item.SeatType}}</td>
           <td>{{item.TableName}}</td>
-          <td>{{item.Description}}</td>
-          <td>
-            <figure class="image is-64x64 is-16by9">
-              <img v-bind:src='item.ImagePath' alt="Image">
-            </figure>
-          </td>
+          <td>{{item.Name}}</td>
+          <td>{{item.PhoneNumber}}</td>
+          <td>{{item.Note}}</td>
           <td>
             <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.SeatType, item.TableName, item.Description, item.ImagePath)">
             <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
@@ -59,36 +61,17 @@
 </template>
 <script>
 
-import CreateTable from './CreateTable.vue'
-import EditTable from './EditTable.vue'
-
 export default {
   name: 'ListQueue',
   data () {
     return {
-      Seat: {
-        Seats_2: [
-          { TableName: 'Table 1', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg'), SeatType: 2 },
-          { TableName: 'Table 2', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg'), SeatType: 2 },
-          { TableName: 'Table 3', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 2 },
-          { TableName: 'Table 4', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 2 }
-        ],
-        Seats_4: [
-          { TableName: 'Table 1', Description: "could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 4 },
-          { TableName: 'Table 2', Description: "could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 4 }
-        ],
-        Seats_6: [
-          { TableName: 'Table 1', Description: 'Miusov, as a man man of breeding and deilcacy', Available: false, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 6 },
-          { TableName: 'Table 2', Description: 'Miusov, as a man man of breeding and deilcacy', Available: false, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 6 }
-        ],
-        Seats_8: [
-          { TableName: 'Table 1', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg'), SeatType: 8 },
-          { TableName: 'Table 2', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg'), SeatType: 8 },
-          { TableName: 'Table 3', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 8 },
-          { TableName: 'Table 4', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 8 },
-          { TableName: 'Table 5', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), SeatType: 8 },
-          { TableName: 'Table 6', Description: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), SeatType: 8 }
-        ]
+      Time: {
+        '1': { Time: '01:00 - 01.15', TableName: 'Table 1', SeatType: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
+        '2': { Time: '01:00 - 01.15', TableName: 'Table 2', SeatType: 2, Name: 'Top', PhoneNumber: '091-123-4567', Note: 'eiei' },
+        '3': { Time: '01:00 - 01.15', TableName: 'Table 3', SeatType: 2, Name: 'Fon', PhoneNumber: '091-123-4567', Note: 'eiei' },
+        '4': { Time: '01:00 - 01.15', TableName: 'Table 4', SeatType: 2, Name: 'Somkiat', PhoneNumber: '091-123-4567', Note: 'eiei' },
+        '5': { Time: '01:00 - 01.15', TableName: 'Table 5', SeatType: 2, Name: 'Sompo', PhoneNumber: '091-123-4567', Note: 'eiei' },
+        '6': { Time: '01:00 - 01.15', TableName: 'Table 6', SeatType: 2, Name: 'Saimai', PhoneNumber: '091-123-4567', Note: 'eiei' }
       },
       ModalActive: false,
       TableName: '',
@@ -98,9 +81,6 @@ export default {
     }
   },
   methods: {
-    eiei: function () {
-      console.log('eiei')
-    },
     ModalOpen: function (SeatType, TableName, Description, ImagePath) {
       this.ModalActive = true
       this.SeatType = SeatType
@@ -111,8 +91,7 @@ export default {
     ModalClose: function () {
       this.ModalActive = false
     }
-  },
-  components: {EditTable, CreateTable}
+  }
 }
 </script>
 
