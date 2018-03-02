@@ -35,7 +35,7 @@
           <th>Action</th>
         </tr>
       </tfoot>
-      <tbody v-for="(item, index) in Time" :key="index">
+      <tbody v-for="(item, index) in TimeList" :key="index">
         <tr>
           <th>{{item.Time}}</th>
           <td>{{item.SeatType}}</td>
@@ -44,7 +44,7 @@
           <td>{{item.PhoneNumber}}</td>
           <td>{{item.Note}}</td>
           <td>
-            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.SeatType, item.TableName, item.Description, item.ImagePath)">
+            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.Time, item.SeatType, item.TableName, item.Name, item.PhoneNumber, item.Note)">
             <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
           </td>
         </tr>
@@ -53,7 +53,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <EditTable v-bind:TableName="TableName" v-bind:SeatType="SeatType" v-bind:Description="Description" v-bind:ImagePath="ImagePath"  v-on:Modal="ModalClose"></EditTable>
+        <EditQueue v-bind:Time="Time" v-bind:SeatType="SeatType" v-bind:TableName="TableName" v-bind:Name="Name" v-bind:PhoneNumber="PhoneNumber" v-bind:Note="Note" v-on:Modal="ModalClose"></EditQueue>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
@@ -61,11 +61,13 @@
 </template>
 <script>
 
+import EditQueue from './EditQueue.vue'
+
 export default {
   name: 'ListQueue',
   data () {
     return {
-      Time: {
+      TimeList: {
         '1': { Time: '01:00 - 01.15', TableName: 'Table 1', SeatType: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
         '2': { Time: '01:00 - 01.15', TableName: 'Table 2', SeatType: 2, Name: 'Top', PhoneNumber: '091-123-4567', Note: 'eiei' },
         '3': { Time: '01:00 - 01.15', TableName: 'Table 3', SeatType: 2, Name: 'Fon', PhoneNumber: '091-123-4567', Note: 'eiei' },
@@ -74,24 +76,32 @@ export default {
         '6': { Time: '01:00 - 01.15', TableName: 'Table 6', SeatType: 2, Name: 'Saimai', PhoneNumber: '091-123-4567', Note: 'eiei' }
       },
       ModalActive: false,
-      TableName: '',
-      Description: '',
+      Time: '',
       SeatType: '',
-      ImagePath: ''
+      TableName: '',
+      Name: '',
+      PhoneNumber: '',
+      Note: ''
     }
   },
   methods: {
-    ModalOpen: function (SeatType, TableName, Description, ImagePath) {
+    eiei: function () {
+      console.log('eiei')
+    },
+    ModalOpen: function (Time, SeatType, TableName, Name, PhoneNumber, Note) {
       this.ModalActive = true
+      this.Time = Time
       this.SeatType = SeatType
       this.TableName = TableName
-      this.Description = Description
-      this.ImagePath = ImagePath
+      this.Name = Name
+      this.PhoneNumber = PhoneNumber
+      this.Note = Note
     },
     ModalClose: function () {
       this.ModalActive = false
     }
-  }
+  },
+  components: {EditQueue}
 }
 </script>
 

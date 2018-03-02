@@ -59,7 +59,6 @@
 </template>
 <script>
 
-import CreateTable from './CreateTable.vue'
 import EditTable from './EditTable.vue'
 
 export default {
@@ -112,7 +111,7 @@ export default {
       this.ModalActive = false
     }
   },
-  components: {EditTable, CreateTable}
+  components: {EditTable}
 }
 </script>
 
