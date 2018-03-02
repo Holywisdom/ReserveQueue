@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueFirestore from 'vue-firestore'
 import HelloWorld from '@/components/HelloWorld'
 import ReseverForm from '@/components/ReseverForm'
 import CreateTable from '@/components/CreateTable'
@@ -7,6 +8,7 @@ import ListTable from '@/components/ListTable'
 import ListQueue from '@/components/ListQueue'
 
 Vue.use(Router)
+Vue.use(VueFirestore);
 
 export default new Router({
   mode: 'history',
