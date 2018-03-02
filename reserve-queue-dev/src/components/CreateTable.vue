@@ -18,7 +18,6 @@
       <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
       <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImageLink">
       <button class="button is-primary" type="primary" size="large" v-on:click="CreateTable">Create</button>
-      <button class="button is-primary" type="primary" size="large" v-on:click="GetTable">Get</button>
     </section>
   </div>
 </template>
