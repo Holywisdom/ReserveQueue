@@ -48,7 +48,8 @@ export default {
           TableName: this.TableName,
           TableDescription: this.TableDescription,
           TableSeatNumber: this.TableSeatNumber,
-          ImageLink: this.ImageLink
+          ImageLink: this.ImageLink,
+          Available: false
         }
       )
       this.TableName = ''
