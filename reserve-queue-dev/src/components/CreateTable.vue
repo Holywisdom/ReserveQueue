@@ -18,11 +18,15 @@
       <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
       <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImageLink">
       <button class="button is-primary" type="primary" size="large" v-on:click="CreateTable">Create</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="GetTable">Get</button>
     </section>
   </div>
 </template>
 
 <script>
+
+import { db } from '../service/firebase'
+
 export default {
   name: 'CreateTable',
   data () {
@@ -33,12 +37,25 @@ export default {
       ImageLink: ''
     }
   },
+  firestore () {
+    return {
+      Table: db.collection('Table')
+    }
+  },
   methods: {
     CreateTable: function () {
-      console.log(this.TableName)
-      console.log(this.TableSeatNumber)
-      console.log(this.TableDescription)
-      console.log(this.ImageLink)
+      this.$firestore.Table.add(
+        {
+          TableName: this.TableName,
+          TableDescription: this.TableDescription,
+          TableSeatNumber: this.TableSeatNumber,
+          ImageLink: this.ImageLink
+        }
+      )
+      this.TableName = ''
+      this.TableSeatNumber = ''
+      this.TableDescription = ''
+      this.ImageLink = ''
     }
   }
 }
