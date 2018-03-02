@@ -8,7 +8,6 @@ import ListQueue from '@/components/ListQueue'
 
 Vue.use(Router)
 
-
 export default new Router({
   mode: 'history',
   routes: [

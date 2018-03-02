@@ -8,7 +8,7 @@ import VueFirestore from 'vue-firestore'
 
 Vue.config.productionTip = false
 
-Vue.use(VueFirestore);
+Vue.use(VueFirestore)
 
 /* eslint-disable no-new */
 new Vue({
