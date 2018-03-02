@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import ReseverForm from '@/components/ReseverForm'
 import CreateTable from '@/components/CreateTable'
 import ListTable from '@/components/ListTable'
+import ListQueue from '@/components/ListQueue'
 
 Vue.use(Router)
 
@@ -26,9 +27,14 @@ export default new Router({
       component: CreateTable
     },
     {
-      path: '/list',
+      path: '/table',
       name: 'ListTable',
       component: ListTable
+    },
+    {
+      path: '/queue',
+      name: 'ListQueue',
+      component: ListQueue
     }
   ]
 })
