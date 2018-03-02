@@ -3,7 +3,7 @@
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128 is-16by9">
-          <img v-bind:src='ImagePath' alt="Image">
+          <img v-bind:src="ImagePath" alt="Image">
         </figure>
       </div>
       <div class="media-content">
@@ -13,7 +13,7 @@
             <br>
             <span class="tag" v-bind:class="[Available ? 'is-success' : 'is-danger']">Available</span>
             <br>
-            <small>{{Description}}</small>
+            <small>{{TableDescription}}</small>
             <br>
           </p>
         </div>
@@ -38,7 +38,7 @@ import SlotCard from './SlotCard.vue'
 
 export default {
   name: 'TableCard',
-  props: ['TableName', 'Description', 'Available', 'ImagePath'],
+  props: ['TableName', 'TableDescription', 'Available', 'ImagePath'],
   data () {
     return {
       ModalActive: false
