@@ -3,28 +3,44 @@
     <h1 class="title is-3" id="DetailHeader">Edit Table</h1>
     <section class="inputForm">
       <input class="input is-primary" type="text" placeholder="Table Name" v-model="TableName">
-      <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="SeatType">
-      <input class="input is-primary" type="text" placeholder="Table Description" v-model="Description">
-      <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImageLink">
+      <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="TableSeatNumber">
+      <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
+      <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImagePath">
       <button class="button is-primary" type="primary" size="large" v-on:click="CreateTable">Edit</button>
     </section>
   </div>
 </template>
 
 <script>
+
+import { db } from '../service/firebase'
+
 export default {
   name: 'EditTable',
-  props: ['TableName', 'Description', 'SeatType', 'ImagePath'],
+  props: ['TableName', 'TableDescription', 'TableSeatNumber', 'ImagePath', 'id'],
   data () {
     return {
     }
   },
+  firestore () {
+    return {
+      Table: db.collection('Table')
+    }
+  },
   methods: {
     CreateTable: function () {
+      this.$firestore.Table.doc(this.id).set({
+        TableName: this.TableName,
+        TableSeatNumber: this.TableSeatNumber,
+        TableDescription: this.TableDescription,
+        ImagePath: this.ImagePath
+      }, { merge: true })
+      this.ModalClose()
       console.log(this.TableName)
       console.log(this.TableSeatNumber)
       console.log(this.TableDescription)
-      console.log(this.ImageLink)
+      console.log(this.ImagePath)
+      console.log(this.id)
     },
     ModalClose: function () {
       this.$emit('Modal')

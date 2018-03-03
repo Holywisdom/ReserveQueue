@@ -42,7 +42,7 @@
             </figure>
           </td>
           <td>
-            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.TableSeatNumber, item.TableName, item.TableDescription, item.ImagePath)">
+            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.TableSeatNumber, item.TableName, item.TableDescription, item.ImagePath,item.id)">
             <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
           </td>
         </tr>
@@ -51,7 +51,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <EditTable v-bind:TableName="TableName" v-bind:SeatType="SeatType" v-bind:Description="Description" v-bind:ImagePath="ImagePath"  v-on:Modal="ModalClose"></EditTable>
+        <EditTable v-bind:TableName="TableName" v-bind:TableSeatNumber="TableSeatNumber" v-bind:TableDescription="TableDescription" v-bind:ImagePath="ImagePath" v-bind:id="id" v-on:Modal="ModalClose"></EditTable>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
@@ -73,9 +73,10 @@ export default {
       Seat: [],
       ModalActive: false,
       TableName: '',
-      Description: '',
-      SeatType: '',
-      ImagePath: ''
+      TableDescription: '',
+      TableSeatNumber: '',
+      ImagePath: '',
+      id: ''
     }
   },
   firestore () {
@@ -87,12 +88,13 @@ export default {
     eiei: function () {
       console.log('eiei')
     },
-    ModalOpen: function (SeatType, TableName, Description, ImagePath) {
+    ModalOpen: function (TableSeatNumber, TableName, TableDescription, ImagePath, id) {
       this.ModalActive = true
-      this.SeatType = SeatType
+      this.TableSeatNumber = TableSeatNumber
       this.TableName = TableName
-      this.Description = Description
+      this.TableDescription = TableDescription
       this.ImagePath = ImagePath
+      this.id = id
     },
     ModalClose: function () {
       this.ModalActive = false
@@ -100,8 +102,8 @@ export default {
     GetTable: function () {
       this.$firestore.Table.orderBy('TableSeatNumber').orderBy('TableName').get().then(querySnapshot => {
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, ' => ', doc.data())
-          this.Seat.push(doc.data())
+          // console.log(doc.id, ' => ', doc.data())
+          this.Seat.push(Object.assign(doc.data(), {'id': doc.id}))
         })
       })
     }

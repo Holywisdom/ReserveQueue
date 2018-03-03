@@ -16,7 +16,7 @@
       <input class="input is-primary" type="text" placeholder="Table Name" v-model="TableName">
       <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="TableSeatNumber">
       <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
-      <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImageLink">
+      <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImagePath">
       <button class="button is-primary" type="primary" size="large" v-on:click="CreateTable">Create</button>
     </section>
   </div>
@@ -33,7 +33,7 @@ export default {
       TableName: '',
       TableSeatNumber: '',
       TableDescription: '',
-      ImageLink: ''
+      ImagePath: ''
     }
   },
   firestore () {
@@ -48,7 +48,7 @@ export default {
           TableName: this.TableName,
           TableDescription: this.TableDescription,
           TableSeatNumber: this.TableSeatNumber,
-          ImageLink: this.ImageLink,
+          ImagePath: this.ImagePath,
           TableCreateTimestamp: new Date(),
           Available: false
         }
@@ -56,7 +56,7 @@ export default {
       this.TableName = ''
       this.TableSeatNumber = ''
       this.TableDescription = ''
-      this.ImageLink = ''
+      this.ImagePath = ''
     }
   }
 }
