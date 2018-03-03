@@ -111,7 +111,7 @@ export default {
     },
     GetTable: function () {
       this.Seat = []
-      this.$firestore.Table.where('TableSeatNumber', '==', this.SeatPick + '').get().then(querySnapshot => {
+      this.$firestore.Table.where('TableSeatNumber', '==', this.SeatPick + '').orderBy('TableName').get().then(querySnapshot => {
         querySnapshot.forEach((doc) => {
           console.log(doc.id, ' => ', doc.data())
           this.Seat.push(doc.data())
