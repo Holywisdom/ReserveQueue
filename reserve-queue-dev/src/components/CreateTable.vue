@@ -49,6 +49,7 @@ export default {
           TableDescription: this.TableDescription,
           TableSeatNumber: this.TableSeatNumber,
           ImageLink: this.ImageLink,
+          TableCreateTimestamp: new Date(),
           Available: false
         }
       )
