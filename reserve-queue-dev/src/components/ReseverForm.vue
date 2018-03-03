@@ -49,6 +49,9 @@ import TableCard from './TableCard.vue'
 
 export default {
   name: 'ReseverForm',
+  created: function () {
+    this.GetTable()
+  },
   data () {
     return {
       SeatList: [2, 4, 6, 8],
@@ -104,10 +107,11 @@ export default {
       this.SeatSelect = [false, false, false, false]
       this.SeatSelect[index] = true
       this.SeatPick = item
-      this.GetTable(item)
+      this.GetTable()
     },
-    GetTable: function (item) {
-      this.$firestore.Table.where('TableSeatNumber', '==', item + '').get().then(querySnapshot => {
+    GetTable: function () {
+      this.Seat = []
+      this.$firestore.Table.where('TableSeatNumber', '==', this.SeatPick + '').get().then(querySnapshot => {
         querySnapshot.forEach((doc) => {
           console.log(doc.id, ' => ', doc.data())
           this.Seat.push(doc.data())
