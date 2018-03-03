@@ -13,8 +13,8 @@
       </div>
     </section>
     <section class="inputForm">
-      <button class="button is-primary" type="primary" size="large" v-on:click="WriteTableData">Create</button>
-      <button class="button is-primary" type="primary" size="large" v-on:click="WriteQueueData">Create</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="WriteTableData">WriteTableData</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="WriteQueueData">WriteQueueData</button>
     </section>
   </div>
 </template>
@@ -27,22 +27,12 @@ export default {
   name: 'TestData',
   data () {
     return {
-      TimeList: [
-        { Time: '01:00 - 01.15', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '01:15 - 01.30', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '01:30 - 01.45', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '16:00 - 16.15', TableName: 'Table 2', TableSeatNumber: 2, Name: 'Top', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '16:15 - 16.30', TableName: 'Table 2', TableSeatNumber: 2, Name: 'Top', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '11:00 - 11.15', TableName: 'Table 3', TableSeatNumber: 2, Name: 'Fon', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '21:45 - 22.00', TableName: 'Table 4', TableSeatNumber: 2, Name: 'Somkiat', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '02:00 - 02.15', TableName: 'Table 1', TableSeatNumber: 4, Name: 'Sompo', PhoneNumber: '091-123-4567', Note: 'eiei' },
-        { Time: '05:00 - 05.15', TableName: 'Table 2', TableSeatNumber: 4, Name: 'Saimai', PhoneNumber: '091-123-4567', Note: 'eiei' }
-      ],
     }
   },
   firestore () {
     return {
-      Table: db.collection('Table')
+      Table: db.collection('Table'),
+      Queue: db.collection('Queue')
     }
   },
   methods: {
@@ -72,7 +62,7 @@ export default {
       })
     },
     WriteQueueData: function () {
-    TimeList: [
+      var TimeList = [
         { Time: '01:00 - 01.15', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
         { Time: '01:15 - 01.30', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
         { Time: '01:30 - 01.45', TableName: 'Table 1', TableSeatNumber: 2, Name: 'Boing', PhoneNumber: '091-123-4567', Note: 'eiei' },
@@ -82,9 +72,9 @@ export default {
         { Time: '21:45 - 22.00', TableName: 'Table 4', TableSeatNumber: 2, Name: 'Somkiat', PhoneNumber: '091-123-4567', Note: 'eiei' },
         { Time: '02:00 - 02.15', TableName: 'Table 1', TableSeatNumber: 4, Name: 'Sompo', PhoneNumber: '091-123-4567', Note: 'eiei' },
         { Time: '05:00 - 05.15', TableName: 'Table 2', TableSeatNumber: 4, Name: 'Saimai', PhoneNumber: '091-123-4567', Note: 'eiei' }
-    ]
-    TimeList.map(obj => {
-        this.$firestore.Table.add(
+      ]
+      TimeList.map(obj => {
+        this.$firestore.Queue.add(
           {
             ...obj
           }

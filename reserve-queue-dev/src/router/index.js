@@ -5,6 +5,7 @@ import ReseverForm from '@/components/ReseverForm'
 import CreateTable from '@/components/CreateTable'
 import ListTable from '@/components/ListTable'
 import ListQueue from '@/components/ListQueue'
+import TestData from '@/components/TestData'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/queue',
       name: 'ListQueue',
       component: ListQueue
+    },
+    {
+      path: '/test',
+      name: 'TestData',
+      component: TestData
     }
   ]
 })
