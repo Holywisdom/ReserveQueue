@@ -3,7 +3,7 @@
     <h1 class="title is-3" id="DetailHeader">Edit Queue</h1>
     <section class="inputForm">
       <input class="input is-primary" type="text" placeholder="Time" v-model="Time">
-      <input class="input is-primary" type="text" placeholder="Seat Type" v-model="SeatType">
+      <input class="input is-primary" type="text" placeholder="Seat Type" v-model="TableSeatNumber">
       <input class="input is-primary" type="text" placeholder="Table Name" v-model="TableName">
       <input class="input is-primary" type="text" placeholder="Name" v-model="Name">
       <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: 'EditQueue',
-  props: ['Time', 'SeatType', 'TableName', 'Name', 'PhoneNumber', 'Note'],
+  props: ['Time', 'TableSeatNumber', 'TableName', 'Name', 'PhoneNumber', 'Note'],
   data () {
     return {
     }
@@ -25,7 +25,7 @@ export default {
     EditQueue: function () {
       console.log(this.Time)
       console.log(this.TableName)
-      console.log(this.SeatType)
+      console.log(this.TableSeatNumber)
       console.log(this.Name)
       console.log(this.PhoneNumber)
       console.log(this.Note)
