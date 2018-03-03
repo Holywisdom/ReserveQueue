@@ -56,31 +56,6 @@ export default {
       this.TableSeatNumber = ''
       this.TableDescription = ''
       this.ImageLink = ''
-    },
-    WriteMockData: function () {
-      var data = [
-        { TableName: 'Table 1', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg'), TableSeatNumber: '2' },
-        { TableName: 'Table 2', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg'), TableSeatNumber: '2' },
-        { TableName: 'Table 3', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), TableSeatNumber: '2' },
-        { TableName: 'Table 4', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), TableSeatNumber: '2' },
-        { TableName: 'Table 1', TableDescription: "could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), TableSeatNumber: '4' },
-        { TableName: 'Table 2', TableDescription: "could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), TableSeatNumber: '4' },
-        { TableName: 'Table 1', TableDescription: 'Miusov, as a man man of breeding and deilcacy', Available: false, ImagePath: require('../assets/thibault-copleux-272762.jpg'), TableSeatNumber: '6' },
-        { TableName: 'Table 2', TableDescription: 'Miusov, as a man man of breeding and deilcacy', Available: false, ImagePath: require('../assets/thibault-copleux-272762.jpg'), TableSeatNumber: '6' },
-        { TableName: 'Table 1', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: false, ImagePath: require('../assets/brooke-lark-93583.jpg'), TableSeatNumber: '8' },
-        { TableName: 'Table 2', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/nils-stahl-188467.jpg'), TableSeatNumber: '8' },
-        { TableName: 'Table 3', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), TableSeatNumber: '8' },
-        { TableName: 'Table 4', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), TableSeatNumber: '8' },
-        { TableName: 'Table 5', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/breather-163397.jpg'), TableSeatNumber: '8' },
-        { TableName: 'Table 6', TableDescription: "Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd qualms, when he reached the Father Superior's with Ivan: he felt ashamed of havin lost his temper. He felt that he ought to have", Available: true, ImagePath: require('../assets/thibault-copleux-272762.jpg'), TableSeatNumber: '8' }
-      ]
-      data.map(obj => {
-        this.$firestore.Table.add(
-          {
-            ...obj
-          }
-        )
-      })
     }
   }
 }
