@@ -44,7 +44,7 @@
           <td>{{item.TableName}}</td>
           <td>{{item.Note}}</td>
           <td>
-            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.Time, item.TableSeatNumber, item.TableName, item.Name, item.PhoneNumber, item.Note)">
+            <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.Time, item.TableSeatNumber, item.TableName, item.Name, item.PhoneNumber, item.Note, item.id)">
             <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
           </td>
         </tr>
@@ -53,7 +53,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <EditQueue v-bind:Time="Time" v-bind:TableSeatNumber="TableSeatNumber" v-bind:TableName="TableName" v-bind:Name="Name" v-bind:PhoneNumber="PhoneNumber" v-bind:Note="Note" v-on:Modal="ModalClose"></EditQueue>
+        <EditQueue v-bind:Time="Time" v-bind:TableSeatNumber="TableSeatNumber" v-bind:TableName="TableName" v-bind:Name="Name" v-bind:PhoneNumber="PhoneNumber" v-bind:Note="Note" v-bind:id="id" v-on:Modal="ModalClose"></EditQueue>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
@@ -79,7 +79,8 @@ export default {
       TableName: '',
       Name: '',
       PhoneNumber: '',
-      Note: ''
+      Note: '',
+      id: ''
     }
   },
   firestore () {
@@ -91,7 +92,7 @@ export default {
     eiei: function () {
       console.log('eiei')
     },
-    ModalOpen: function (Time, TableSeatNumber, TableName, Name, PhoneNumber, Note) {
+    ModalOpen: function (Time, TableSeatNumber, TableName, Name, PhoneNumber, Note, id) {
       this.ModalActive = true
       this.Time = Time
       this.TableSeatNumber = TableSeatNumber
@@ -99,6 +100,7 @@ export default {
       this.Name = Name
       this.PhoneNumber = PhoneNumber
       this.Note = Note
+      this.id = id
     },
     ModalClose: function () {
       this.ModalActive = false
@@ -108,7 +110,7 @@ export default {
       this.$firestore.Queue.orderBy('PhoneNumber').orderBy('Time').get().then(querySnapshot => {
         querySnapshot.forEach((doc) => {
           console.log(doc.id, ' => ', doc.data())
-          this.TimeList.push(doc.data())
+          this.TimeList.push(Object.assign(doc.data(), {'id': doc.id}))
         })
       })
     }

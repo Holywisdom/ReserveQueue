@@ -14,15 +14,32 @@
 </template>
 
 <script>
+
+import { db } from '../service/firebase'
+
 export default {
   name: 'EditQueue',
-  props: ['Time', 'TableSeatNumber', 'TableName', 'Name', 'PhoneNumber', 'Note'],
+  props: ['Time', 'TableSeatNumber', 'TableName', 'Name', 'PhoneNumber', 'Note', 'id'],
   data () {
     return {
     }
   },
+  firestore () {
+    return {
+      Queue: db.collection('Queue')
+    }
+  },
   methods: {
     EditQueue: function () {
+      this.$firestore.Queue.doc(this.id).set({
+        Time: this.Time,
+        TableName: this.TableName,
+        TableSeatNumber: this.TableSeatNumber,
+        Name: this.Name,
+        PhoneNumber: this.PhoneNumber,
+        Note: this.Note
+      }, { merge: true })
+      this.ModalClose()
       console.log(this.Time)
       console.log(this.TableName)
       console.log(this.TableSeatNumber)
