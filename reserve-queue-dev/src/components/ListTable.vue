@@ -43,7 +43,7 @@
           </td>
           <td>
             <input type="image" v-bind:src="require('../assets/if_brush-pencil_1055103.png')" alt="Submit" width="16" height="16" v-on:click="ModalOpen(item.TableSeatNumber, item.TableName, item.TableDescription, item.ImagePath,item.id)">
-            <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="eiei">
+            <input type="image" v-bind:src="require('../assets/if_Close-64_32062.png')" alt="Submit" width="16" height="16" v-on:click="DeleteTable(item.id)">
           </td>
         </tr>
       </tbody>
@@ -85,8 +85,13 @@ export default {
     }
   },
   methods: {
-    eiei: function () {
-      console.log('eiei')
+    DeleteTable: function (id) {
+      this.$firestore.Table.doc(id).delete().then(res => {
+        console.log('Document successfully deleted!')
+        this.GetTable()
+      }).catch(function (error) {
+        console.error('Error removing document: ', error)
+      })
     },
     ModalOpen: function (TableSeatNumber, TableName, TableDescription, ImagePath, id) {
       this.ModalActive = true
