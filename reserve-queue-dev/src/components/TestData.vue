@@ -15,6 +15,7 @@
     <section class="inputForm">
       <button class="button is-primary" type="primary" size="large" v-on:click="WriteTableData">WriteTableData</button>
       <button class="button is-primary" type="primary" size="large" v-on:click="WriteQueueData">WriteQueueData</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="GetTable">WriteSlotData</button>
     </section>
   </div>
 </template>
@@ -27,12 +28,14 @@ export default {
   name: 'TestData',
   data () {
     return {
+      Seat: []
     }
   },
   firestore () {
     return {
       Table: db.collection('Table'),
-      Queue: db.collection('Queue')
+      Queue: db.collection('Queue'),
+      Slot: db.collection('Slot')
     }
   },
   methods: {
@@ -79,6 +82,123 @@ export default {
             ...obj
           }
         )
+      })
+    },
+    WriteSlotData: function () {
+      var slot = {
+        'slot01': false,
+        'slot02': false,
+        'slot03': false,
+        'slot04': false,
+        'slot05': false,
+        'slot06': false,
+        'slot07': false,
+        'slot08': false,
+        'slot09': false,
+        'slot10': false,
+        'slot11': false,
+        'slot12': false,
+        'slot13': false,
+        'slot14': false,
+        'slot15': false,
+        'slot16': false,
+        'slot17': false,
+        'slot18': false,
+        'slot19': false,
+        'slot20': false,
+        'slot21': false,
+        'slot22': false,
+        'slot23': false,
+        'slot24': false,
+        'slot25': false,
+        'slot26': false,
+        'slot27': false,
+        'slot28': false,
+        'slot29': false,
+        'slot30': false,
+        'slot31': false,
+        'slot32': false,
+        'slot33': false,
+        'slot34': false,
+        'slot35': false,
+        'slot36': false,
+        'slot37': false,
+        'slot38': false,
+        'slot39': false,
+        'slot40': false,
+        'slot41': false,
+        'slot42': false,
+        'slot43': false,
+        'slot44': false,
+        'slot45': false,
+        'slot46': false,
+        'slot47': false,
+        'slot48': false,
+        'slot49': false,
+        'slot50': false,
+        'slot51': false,
+        'slot52': false,
+        'slot53': false,
+        'slot54': false,
+        'slot55': false,
+        'slot56': false,
+        'slot57': false,
+        'slot58': false,
+        'slot59': false,
+        'slot60': false,
+        'slot61': false,
+        'slot62': false,
+        'slot63': false,
+        'slot64': false,
+        'slot65': false,
+        'slot66': false,
+        'slot67': false,
+        'slot68': false,
+        'slot69': false,
+        'slot70': false,
+        'slot71': false,
+        'slot72': false,
+        'slot73': false,
+        'slot74': false,
+        'slot75': false,
+        'slot76': false,
+        'slot77': false,
+        'slot78': false,
+        'slot79': false,
+        'slot80': false,
+        'slot81': false,
+        'slot82': false,
+        'slot83': false,
+        'slot84': false,
+        'slot85': false,
+        'slot86': false,
+        'slot87': false,
+        'slot88': false,
+        'slot89': false,
+        'slot90': false,
+        'slot91': false,
+        'slot92': false,
+        'slot93': false,
+        'slot94': false,
+        'slot95': false,
+        'slot96': false
+      }
+      this.Seat.map(item => {
+        this.$firestore.Slot.doc(item).set(
+          {
+            ...slot
+          }
+        )
+      })
+    },
+    GetTable: function () {
+      this.$firestore.Table.orderBy('TableSeatNumber').orderBy('TableName').get().then(querySnapshot => {
+        querySnapshot.forEach((doc) => {
+          // console.log(doc.id, ' => ', doc.data())
+          this.Seat.push(doc.id)
+        })
+      }).then(a => {
+        this.WriteSlotData()
       })
     }
   }
