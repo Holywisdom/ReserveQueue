@@ -17,7 +17,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#DetailHeader" class="card-footer-item" v-on:click="ModalClose">Done</a>
+      <a href="#DetailHeader" class="card-footer-item" v-on:click="WriteSelectSlot">Done</a>
       <a href="" class="card-footer-item" v-on:click="ModalClose">Cancel</a>
     </footer>
   </div>
@@ -159,6 +159,13 @@ export default {
     GetSlotData: function () {
       this.$firestore.Slot.doc(this.id).get().then(querySnapshot => {
         this.slot = querySnapshot.data()
+      })
+    },
+    WriteSelectSlot: function () {
+      this.$firestore.Slot.doc(this.id).set({
+        ...this.select
+      }, { merge: true }).then(_ => {
+        this.ModalClose()
       })
     }
   }
