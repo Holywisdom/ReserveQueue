@@ -25,7 +25,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <SlotCard v-bind:TableName=TableName v-on:Modal="ModalClose"></SlotCard>
+        <SlotCard v-bind:TableName=TableName v-bind:id=id v-on:Modal="ModalClose"></SlotCard>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
@@ -38,7 +38,7 @@ import SlotCard from './SlotCard.vue'
 
 export default {
   name: 'TableCard',
-  props: ['TableName', 'TableDescription', 'Available', 'ImagePath'],
+  props: ['TableName', 'TableDescription', 'Available', 'ImagePath', 'id'],
   data () {
     return {
       ModalActive: false

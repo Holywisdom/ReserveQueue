@@ -25,7 +25,7 @@
     </div>
     <div class="columns is-multiline">
       <div class="column is-half" v-for="(item, index) in Seat" :key="index">
-        <TableCard  v-bind:TableName=item.TableName v-bind:TableDescription=item.TableDescription  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath></TableCard>
+        <TableCard  v-bind:TableName=item.TableName v-bind:TableDescription=item.TableDescription  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath v-bind:id=item.id></TableCard>
       </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
@@ -114,7 +114,7 @@ export default {
       this.$firestore.Table.where('TableSeatNumber', '==', this.SeatPick + '').orderBy('TableName').get().then(querySnapshot => {
         querySnapshot.forEach((doc) => {
           console.log(doc.id, ' => ', doc.data())
-          this.Seat.push(doc.data())
+          this.Seat.push(Object.assign(doc.data(), {'id': doc.id}))
         })
       })
     }

@@ -24,119 +24,28 @@
 </template>
 
 <script>
+
+import { db } from '../service/firebase'
+
 export default {
   name: 'SlotCard',
-  props: ['TableName'],
+  props: ['TableName', 'id'],
+  created: function () {
+    this.GetSlotData()
+  },
   data () {
     return {
-      slot: {
-        'slot1': true,
-        'slot2': true,
-        'slot3': true,
-        'slot4': true,
-        'slot5': true,
-        'slot6': true,
-        'slot7': true,
-        'slot8': true,
-        'slot9': true,
-        'slot10': true,
-        'slot11': true,
-        'slot12': true,
-        'slot13': true,
-        'slot14': true,
-        'slot15': true,
-        'slot16': true,
-        'slot17': true,
-        'slot18': true,
-        'slot19': true,
-        'slot20': true,
-        'slot21': true,
-        'slot22': true,
-        'slot23': true,
-        'slot24': true,
-        'slot25': true,
-        'slot26': true,
-        'slot27': true,
-        'slot28': true,
-        'slot29': true,
-        'slot30': true,
-        'slot31': true,
-        'slot32': true,
-        'slot33': true,
-        'slot34': true,
-        'slot35': true,
-        'slot36': true,
-        'slot37': true,
-        'slot38': true,
-        'slot39': true,
-        'slot40': true,
-        'slot41': true,
-        'slot42': true,
-        'slot43': true,
-        'slot44': true,
-        'slot45': true,
-        'slot46': true,
-        'slot47': true,
-        'slot48': true,
-        'slot49': true,
-        'slot50': true,
-        'slot51': true,
-        'slot52': true,
-        'slot53': true,
-        'slot54': true,
-        'slot55': true,
-        'slot56': true,
-        'slot57': true,
-        'slot58': true,
-        'slot59': true,
-        'slot60': true,
-        'slot61': true,
-        'slot62': true,
-        'slot63': true,
-        'slot64': true,
-        'slot65': true,
-        'slot66': true,
-        'slot67': true,
-        'slot68': true,
-        'slot69': true,
-        'slot70': true,
-        'slot71': true,
-        'slot72': true,
-        'slot73': true,
-        'slot74': true,
-        'slot75': true,
-        'slot76': true,
-        'slot77': true,
-        'slot78': true,
-        'slot79': true,
-        'slot80': true,
-        'slot81': true,
-        'slot82': true,
-        'slot83': true,
-        'slot84': true,
-        'slot85': true,
-        'slot86': true,
-        'slot87': true,
-        'slot88': true,
-        'slot89': true,
-        'slot90': true,
-        'slot91': true,
-        'slot92': false,
-        'slot93': false,
-        'slot94': false,
-        'slot95': false,
-        'slot96': false
-      },
+      slot: [],
       time: {
-        'slot1': '00:00-00:15',
-        'slot2': '00:15-00:30',
-        'slot3': '00:30-00:45',
-        'slot4': '00:45-01:00',
-        'slot5': '01:00-01:15',
-        'slot6': '01:15-01:30',
-        'slot7': '01:30-01:45',
-        'slot8': '01:45-02:00',
-        'slot9': '02:00-02:15',
+        'slot01': '00:00-00:15',
+        'slot02': '00:15-00:30',
+        'slot03': '00:30-00:45',
+        'slot04': '00:45-01:00',
+        'slot05': '01:00-01:15',
+        'slot06': '01:15-01:30',
+        'slot07': '01:30-01:45',
+        'slot08': '01:45-02:00',
+        'slot09': '02:00-02:15',
         'slot10': '02:15-02:30',
         'slot11': '02:30-02:45',
         'slot12': '02:45-03:00',
@@ -230,6 +139,11 @@ export default {
       }
     }
   },
+  firestore () {
+    return {
+      Slot: db.collection('Slot')
+    }
+  },
   methods: {
     ModalClose: function () {
       this.$emit('Modal')
@@ -241,6 +155,11 @@ export default {
     UnSelect: function (key) {
       this.slot[key] = false
       delete this.select[key]
+    },
+    GetSlotData: function () {
+      this.$firestore.Slot.doc(this.id).get().then(querySnapshot => {
+        this.slot = querySnapshot.data()
+      })
     }
   }
 }
