@@ -6,7 +6,7 @@
       <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="TableSeatNumber">
       <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
       <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImagePath">
-      <button class="button is-primary" type="primary" size="large" v-on:click="CreateTable">Edit</button>
+      <button class="button is-primary" type="primary" size="large" v-on:click="EditTable">Edit</button>
     </section>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    CreateTable: function () {
+    EditTable: function () {
       this.$firestore.Table.doc(this.id).set({
         TableName: this.TableName,
         TableSeatNumber: this.TableSeatNumber,
