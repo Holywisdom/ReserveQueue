@@ -64,7 +64,7 @@ exports.pay = functions.https.onRequest((req, res) => {
     transactions: [{
       amount: {
         total: req.body.price,
-        currency: 'USD'
+        currency: 'THB'
       },
       // This is the payment transaction description. Maximum length: 127
       description: req.body.uid, // req.body.id
