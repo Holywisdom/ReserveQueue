@@ -14,11 +14,6 @@ export default new Router({
   routes: [
     {
       path: '',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/reserve',
       name: 'ReseverForm',
       component: ReseverForm
     },
