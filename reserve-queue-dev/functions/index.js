@@ -63,14 +63,14 @@ exports.pay = functions.https.onRequest((req, res) => {
     },
     transactions: [{
       amount: {
-        total: req.body.price,
+        total: req.query.price,
         currency: 'THB'
       },
       // This is the payment transaction description. Maximum length: 127
-      description: req.body.uid, // req.body.id
+      description: req.query.uid, // req.body.id
       // reference_id string .Optional. The merchant-provided ID for the purchase unit. Maximum length: 256.
       // reference_id: req.body.uid,
-      custom: req.body.uid,
+      custom: req.query.uid,
       // soft_descriptor: req.body.uid
       // "invoice_number": req.body.uid,A
     }]
@@ -133,7 +133,8 @@ exports.process = functions.https.onRequest((req, res) => {
         res.redirect(`https://console.firebase.google.com/project/${process.env.GCLOUD_PROJECT}/functions/logs?search=&severity=DEBUG`);
       }
     }
-  }).then(r => console.info('promise: ', r));
+  })
+  // .then(r => console.info('promise: ', r));
 });
 
 // SMS
