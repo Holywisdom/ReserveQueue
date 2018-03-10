@@ -10,8 +10,8 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 const twilio = require('twilio');
-const accountSid = 'ACbdb6be10c8e23b59bb6e430b9a760344'
-const authToken  = '8f40eede7f93902a8b18847f68b0f6ce'
+const accountSid = functions.config().twilio.sid
+const authToken  = functions.config().twilio.token
 const client = new twilio(accountSid, authToken);
 const twilioNumber = '+15103437436' // your twilio phone number
 
