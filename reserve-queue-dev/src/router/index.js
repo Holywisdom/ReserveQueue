@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import ReseverForm from '@/components/ReseverForm'
 import CreateTable from '@/components/CreateTable'
 import ListTable from '@/components/ListTable'
