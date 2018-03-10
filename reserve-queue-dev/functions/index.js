@@ -1,5 +1,3 @@
-const functions = require('firebase-functions');
-
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
@@ -53,6 +51,26 @@ exports.textStatus = functions.database
                 .catch(err => console.log(err))
 
 
+});
+
+exports.SendSMS = functions.firestore.document('/Queue/{QueueKey}').onCreate(event => {
+  var newQueue = event.data.data();
+  PhoneNum = newQueue.PhoneNumber
+
+  GlobalPhoneNumber = "+66" + PhoneNum.slice(1)
+
+  if ( !validE164(GlobalPhoneNumber) ) {
+    throw new Error('number must be E164 format!')
+  }
+
+  const textMessage = {
+      body: `Queue Code: 1234`,
+      to: GlobalPhoneNumber,  // Text to this number
+      from: twilioNumber // From a valid Twilio number
+  }
+  return client.messages.create(textMessage)
+         .then(message => console.log(message.sid, 'success'))
+         .catch(err => console.log(err))
 });
 
 /// Validate E164 format
