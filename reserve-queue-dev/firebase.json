@@ -1,16 +1,10 @@
 {
+  "functions": {
+    "source": "functions"
+  },
   "hosting": {
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      },
       {
         "source": "/process",
         "function": "process"
@@ -21,18 +15,15 @@
       },
       {
         "source":"/error",
-        "destination":"/error.html",
-        "type":301
+        "destination":"/error.html"
       },
       {
         "source":"/cancel",
-        "destination":"/cancel.html",
-        "type":301
+        "destination":"/cancel.html"
       },
       {
         "source":"/success",
-        "destination":"/success.html",
-        "type":301
+        "destination":"/success.html"
       }
     ]
   }
