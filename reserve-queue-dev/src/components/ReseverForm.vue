@@ -78,7 +78,12 @@ export default {
         TableName: this.TableName,
         PaymentTimestamp: new Date()
       }).then(res => {
-        window.location.href = `https://reservequeue.firebaseapp.com/pay?price=5&uid=${res.id}`
+        var Price = '5'
+        var Description = this.SeatPick + '_' + this.TableName
+        var ReferenceId = this.TableKey
+        var SoftDescriptor = this.PhoneNumber
+        var PaymentKey = res.id
+        window.location.href = `https://reservequeue.firebaseapp.com/pay?price=${Price}&payment=${PaymentKey}&description=${Description}&reference=${ReferenceId}&soft=${SoftDescriptor}`
       })
     },
     ActiveSeatSelect: function (index, item) {

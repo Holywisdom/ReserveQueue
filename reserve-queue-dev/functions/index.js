@@ -67,12 +67,12 @@ exports.pay = functions.https.onRequest((req, res) => {
         currency: 'THB'
       },
       // This is the payment transaction description. Maximum length: 127
-      description: req.query.uid, // req.body.id
+      description: req.query.description, // req.body.id
       // reference_id string .Optional. The merchant-provided ID for the purchase unit. Maximum length: 256.
-      // reference_id: req.body.uid,
-      custom: req.query.uid,
-      // soft_descriptor: req.body.uid
-      // "invoice_number": req.body.uid,A
+      reference_id: req.query.reference,
+      // custom: req.query.phone,
+      soft_descriptor: req.query.soft,
+      "invoice_number": req.query.payment
     }]
   });
   // 2.Initialize the payment and redirect the user.
@@ -112,7 +112,7 @@ exports.process = functions.https.onRequest((req, res) => {
   return paypal.payment.execute(paymentId, payerId, (error, payment) => {
     if (error) {
       console.error(error);
-      res.redirect(`${req.protocol}://${req.get('host')}/error`); // replace with your url page error
+      res.redirect(`https://reservequeue.firebaseapp.com/error`); // replace with your url page error
     } else {
       if (payment.state === 'approved') {
         console.info('payment completed successfully, description: ', payment.transactions[0].description);
@@ -126,7 +126,7 @@ exports.process = functions.https.onRequest((req, res) => {
           // 'description': description,
           'date': date
         })
-        res.redirect(`${req.protocol}://${req.get('host')}/success`); // replace with your url, page success
+        res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
       } else {
         console.warn('payment.state: not approved ?');
         // replace debug url
