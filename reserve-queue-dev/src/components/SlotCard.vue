@@ -17,7 +17,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#DetailHeader" class="card-footer-item" v-on:click="WriteSelectSlot">Done</a>
+      <a href="#DetailHeader" class="card-footer-item" v-on:click="Done">Done</a>
       <a href="" class="card-footer-item" v-on:click="ModalClose">Cancel</a>
     </footer>
   </div>
@@ -134,9 +134,7 @@ export default {
         'slot95': '23:30-23:45',
         'slot96': '23:45-00:00'
       },
-      select: {
-
-      }
+      select: {}
     }
   },
   firestore () {
@@ -147,6 +145,9 @@ export default {
   methods: {
     ModalClose: function () {
       this.$emit('Modal')
+    },
+    Done: function () {
+      this.$emit('Selected', this.select)
     },
     Select: function (key) {
       this.slot[key] = 'selected'

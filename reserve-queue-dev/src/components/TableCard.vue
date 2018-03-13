@@ -25,7 +25,7 @@
     <div class="modal" v-bind:class="{'is-active': ModalActive}">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <SlotCard v-bind:TableName=TableName v-bind:id=id v-on:Modal="ModalClose"></SlotCard>
+        <SlotCard v-bind:TableName=TableName v-bind:id=id v-on:Modal="ModalClose" v-on:Selected="SelectedSlot"></SlotCard>
       </div>
       <button class="modal-close is-large" aria-label="close" v-on:click="ModalClose"></button>
     </div>
@@ -50,6 +50,10 @@ export default {
     },
     ModalClose: function () {
       this.ModalActive = false
+    },
+    SelectedSlot: function (select) {
+      this.$emit('SelectedSlot', select, this.id, this.TableName)
+      this.ModalClose()
     }
   },
   components: {SlotCard}
