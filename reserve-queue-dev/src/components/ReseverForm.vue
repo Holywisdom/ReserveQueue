@@ -79,7 +79,7 @@ export default {
         PaymentTimestamp: new Date()
       }).then(res => {
         var Price = '5'
-        var Description = this.SeatPick + '_' + this.TableName
+        var Description = 'Seat ' + this.SeatPick + '_' + this.TableName
         var ReferenceId = this.TableKey
         var SoftDescriptor = this.PhoneNumber
         var PaymentKey = res.id
