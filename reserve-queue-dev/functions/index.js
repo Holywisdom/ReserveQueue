@@ -98,9 +98,23 @@ function ShothandSlot(SelectedSlot) {
   return SlotTime
 }
 
+function MakeQueueCode() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
 exports.SendSMS = functions.firestore.document('/Queue/{QueueKey}').onCreate(event => {
   var newQueue = event.data.data();
-  PhoneNum = newQueue.PhoneNumber
+  const PhoneNum = newQueue.PhoneNumber
+  const QueueCode = newQueue.QueueCode
+  const Time = newQueue.Time
+  const Name = newQueue.Name
+
 
   GlobalPhoneNumber = "+66" + PhoneNum.slice(1)
 
@@ -109,7 +123,11 @@ exports.SendSMS = functions.firestore.document('/Queue/{QueueKey}').onCreate(eve
   }
 
   const textMessage = {
-      body: `Queue Code: 1234`,
+      body: `Please bring this code to the restaurant to confirm your identity
+             Code : ${QueueCode}
+             Time : ${Time}
+             Customer Name : ${Name}
+             Phone Number : ${PhoneNum}`,
       to: GlobalPhoneNumber,  // Text to this number
       from: twilioNumber // From a valid Twilio number
   }
@@ -199,14 +217,17 @@ exports.process = functions.https.onRequest((req, res) => {
         return Promise.resolve(getPaymentData).then(result => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
+
           ShothandSlot(SelectedSlot).forEach(SlotItem => {
+            const Code =  MakeQueueCode()
             QueueRef.add({
               Name: Name,
               Note: Note,
               PhoneNumber: PhoneNumber,
               TableName: TableName,
               TableSeatNumber: TableSeatNumber,
-              Time: SlotItem
+              Time: SlotItem,
+              QueueCode: Code
             })
           }).then( _ => {
             res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
