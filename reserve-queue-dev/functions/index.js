@@ -119,14 +119,23 @@ exports.process = functions.https.onRequest((req, res) => {
         // console.info('req.custom: : ', payment.transactions[0].custom);
         // set paid status to True in RealTime Database
         const date = Date.now();
-        const uid = payment.transactions[0].description;
-        const ref = admin.database().ref('users/' + uid + '/');
-        ref.push({
-          'paid': true,
-          // 'description': description,
-          'date': date
+        const PaymentKey = payment.transactions[0].invoice_number
+        const QueueRef = admin.firestore().collection('Queue')
+        const PaymentRef = admin.firestore().collection('Payment')
+        const getPaymentData = PaymentRef.doc(PaymentKey).get()
+        return Promise.resolve(getPaymentData).then(result => {
+          var DataSnapshot = result.data()
+          const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
+          return QueueRef.add({
+            Name: Name,
+            Note: Note,
+            PhoneNumber: PhoneNumber,
+            TableName: TableName,
+            TableSeatNumber: TableSeatNumber
+          }).then( _ => {
+            res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
+          })
         })
-        res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
       } else {
         console.warn('payment.state: not approved ?');
         // replace debug url
