@@ -27,6 +27,18 @@ paypal.configure({
 
 function ShothandSlot(SelectedSlot) {
 
+  const time = {
+    'slot01': '08:00-09:30',
+    'slot02': '09:30-11:00',
+    'slot03': '11:00-12:30',
+    'slot04': '12:30-14:00',
+    'slot05': '14:00-15:30',
+    'slot06': '15:30-17:00',
+    'slot07': '17:00-18:30',
+    'slot08': '18:30-20:00',
+    'slot09': '20:00-21:30'
+  }
+
   var key = Object.keys(SelectedSlot)
 
   const list = key.map(x => parseInt(x.slice(-2)));
@@ -187,12 +199,15 @@ exports.process = functions.https.onRequest((req, res) => {
         return Promise.resolve(getPaymentData).then(result => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
-          return QueueRef.add({
-            Name: Name,
-            Note: Note,
-            PhoneNumber: PhoneNumber,
-            TableName: TableName,
-            TableSeatNumber: TableSeatNumber
+          ShothandSlot(SelectedSlot).forEach(SlotItem => {
+            QueueRef.add({
+              Name: Name,
+              Note: Note,
+              PhoneNumber: PhoneNumber,
+              TableName: TableName,
+              TableSeatNumber: TableSeatNumber,
+              Time: SlotItem
+            })
           }).then( _ => {
             res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
           })
