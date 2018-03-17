@@ -124,10 +124,10 @@ exports.SendSMS = functions.firestore.document('/Queue/{QueueKey}').onCreate(eve
 
   const textMessage = {
       body: `Please bring this code to the restaurant to confirm your identity
-             Code : ${QueueCode}
-             Time : ${Time}
-             Customer Name : ${Name}
-             Phone Number : ${PhoneNum}`,
+      Code : ${QueueCode}
+      Time : ${Time}
+      Customer Name : ${Name}
+      Phone Number : ${PhoneNum}`,
       to: GlobalPhoneNumber,  // Text to this number
       from: twilioNumber // From a valid Twilio number
   }
