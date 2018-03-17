@@ -25,6 +25,67 @@ paypal.configure({
   client_secret: functions.config().paypal.client_secret // run: firebase functions:config:set paypal.client_secret="yourPaypalClientSecret"
 });
 
+function ShothandSlot(SelectedSlot) {
+
+  var key = Object.keys(SelectedSlot)
+
+  const list = key.map(x => parseInt(x.slice(-2)));
+
+  function minus(x, y) {
+      if (y - x == 1) {
+          return true
+      }
+      else {
+          return false
+      }
+  }
+
+  function sliceString (first,last) {
+      return time[first].slice(0,6) + time[last].slice(-5)
+  }
+
+  var state = false
+
+  var start_num = ''
+  var end_num = []
+
+  for (var i = 0; i < list.length; i++) {
+      if (minus(list[i], list[i + 1]) == true) {
+          if (state == false) {
+              start_num = list[i]
+              state = true
+          }
+      }
+      else {
+          if (start_num == '') {
+              end_num.push(list[i])
+          }
+          else {
+              end_num.push([start_num,list[i]])
+          }
+
+          state = false
+          start_num = ''
+      }
+  }
+
+  SlotTime = []
+
+  end_num.forEach(slot => {
+      if (slot.length > 1) {
+          var text_first =  `slot0${slot[0]}`
+          var text_last =  `slot0${slot[1]}`
+          SlotTime.push(sliceString(text_first,text_last))
+      }
+      else {
+          var text = `slot0${slot}`
+          SlotTime.push(time[text])
+      }
+  })
+
+  return SlotTime
+}
+
 exports.SendSMS = functions.firestore.document('/Queue/{QueueKey}').onCreate(event => {
   var newQueue = event.data.data();
   PhoneNum = newQueue.PhoneNumber
