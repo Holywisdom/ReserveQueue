@@ -213,11 +213,15 @@ exports.process = functions.https.onRequest((req, res) => {
         const PaymentKey = payment.transactions[0].invoice_number
         const QueueRef = admin.firestore().collection('Queue')
         const PaymentRef = admin.firestore().collection('Payment')
+        const SlotRef = admin.firestore().collection('Slot')
         const getPaymentData = PaymentRef.doc(PaymentKey).get()
         return Promise.resolve(getPaymentData).then(result => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
-
+          SlotRef.doc(TableKey).set({
+            SelectedSlot
+          },{merge: true}
+          )
           ShothandSlot(SelectedSlot).forEach(SlotItem => {
             const Code =  MakeQueueCode()
             QueueRef.add({
