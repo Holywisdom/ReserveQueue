@@ -219,7 +219,7 @@ exports.process = functions.https.onRequest((req, res) => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
           SlotRef.doc(TableKey).set({
-            SelectedSlot
+            ...SelectedSlot
           },{merge: true}
           )
           ShothandSlot(SelectedSlot).forEach(SlotItem => {
@@ -234,7 +234,7 @@ exports.process = functions.https.onRequest((req, res) => {
               QueueCode: Code
             })
           }).then( _ => {
-            res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
+            _.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
           })
         })
       } else {
