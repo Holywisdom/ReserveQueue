@@ -218,9 +218,9 @@ exports.process = functions.https.onRequest((req, res) => {
         return Promise.resolve(getPaymentData).then(result => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
-          SlotRef.doc(TableKey).set({
-            ...SelectedSlot
-          },{merge: true}
+          SlotRef.doc(TableKey).set(
+            SelectedSlot
+          ,{merge: true}
           )
           ShothandSlot(SelectedSlot).forEach(SlotItem => {
             const Code =  MakeQueueCode()
@@ -233,9 +233,8 @@ exports.process = functions.https.onRequest((req, res) => {
               Time: SlotItem,
               QueueCode: Code
             })
-          }).then( _ => {
-            _.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
           })
+          res.redirect(`https://reservequeue.firebaseapp.com/success`); // replace with your url, page success
         })
       } else {
         console.warn('payment.state: not approved ?');
