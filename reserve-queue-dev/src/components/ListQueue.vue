@@ -18,6 +18,7 @@
           <th>Time</th>
           <th>Name</th>
           <th>Phone Number</th>
+          <th>Queue Code</th>
           <th>Seat Type</th>
           <th>Table Name</th>
           <th>Note</th>
@@ -29,6 +30,7 @@
           <th>Time</th>
           <th>Name</th>
           <th>Phone Number</th>
+          <th>Queue Code</th>
           <th>Seat Type</th>
           <th>Table Name</th>
           <th>Note</th>
@@ -40,6 +42,7 @@
           <th>{{item.Time}}</th>
           <td>{{item.Name}}</td>
           <td>{{item.PhoneNumber}}</td>
+          <td>{{item.QueueCode}}</td>
           <td>{{item.TableSeatNumber}}</td>
           <td>{{item.TableName}}</td>
           <td>{{item.Note}}</td>
