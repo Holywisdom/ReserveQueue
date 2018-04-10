@@ -6,10 +6,6 @@
     "public": "dist",
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
-      },
-      {
         "source": "/process",
         "function": "process"
       },
@@ -28,6 +24,10 @@
       {
         "source":"/success",
         "destination":"/success.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }

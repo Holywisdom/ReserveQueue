@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <section class="hero is-primary">
+    <!-- <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -11,7 +11,9 @@
           </h2>
         </div>
       </div>
-    </section>
+    </section> -->
+    <div class="banner">
+    </div>
     <h1 class="title is-3" id="SelectHeader">Select Seat and Table</h1>
     <div class="tabs is-medium">
       <ul v-for="(item, index) in SeatList" :key="index">
@@ -179,6 +181,14 @@ export default {
 
 #DetailHeader {
   align-self: center;
+}
+
+.banner {
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 414px;
+  height: 151px;
+  background-image: url('../assets/Banner.jpg')
 }
 
 </style>
