@@ -27,6 +27,7 @@
       </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
+    <h2 class="title is-4" v-if="this.TableName">คุณได้ทำการจองโต๊ะ {{this.TableName}} {{this.SeatPick}} ที่นั่ง</h2>
     <section class="inputForm">
       <input class="input" type="text" placeholder="Name" v-model="CustomerName">
       <input class="input" type="text" placeholder="Phone Number" v-model="PhoneNumber">
