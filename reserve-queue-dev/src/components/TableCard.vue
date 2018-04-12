@@ -38,7 +38,7 @@ import SlotCard from './SlotCard.vue'
 
 export default {
   name: 'TableCard',
-  props: ['TableName', 'TableDescription', 'Available', 'ImagePath', 'id'],
+  props: ['TableName', 'TableDescription', 'Available', 'ImagePath', 'id', 'TableSeatNumber'],
   data () {
     return {
       ModalActive: false
@@ -52,7 +52,7 @@ export default {
       this.ModalActive = false
     },
     SelectedSlot: function (select) {
-      this.$emit('SelectedSlot', select, this.id, this.TableName)
+      this.$emit('SelectedSlot', select, this.id, this.TableName, this.TableSeatNumber)
       this.ModalClose()
     }
   },

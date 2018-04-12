@@ -23,16 +23,16 @@
     </div>
     <div class="columns is-multiline">
       <div class="column is-half" v-for="(item, index) in Seat" :key="index">
-        <TableCard  v-bind:TableName=item.TableName v-bind:TableDescription=item.TableDescription  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath v-bind:id=item.id v-on:SelectedSlot="SetSelectedSlotData"></TableCard>
+        <TableCard  v-bind:TableName=item.TableName v-bind:TableDescription=item.TableDescription  v-bind:Available=item.Available v-bind:ImagePath=item.ImagePath v-bind:id=item.id v-bind:TableSeatNumber=item.TableSeatNumber v-on:SelectedSlot="SetSelectedSlotData"></TableCard>
       </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
-    <h2 class="title is-4" v-if="this.TableName">คุณได้ทำการจองโต๊ะ {{this.TableName}} {{this.SeatPick}} ที่นั่ง</h2>
+    <h4 class="title is-4" v-if="this.TableName">คุณได้ทำการจองโต๊ะ {{this.TableName}} {{this.SelectedTable}} ที่นั่ง</h4>
     <section class="inputForm">
       <input class="input" type="text" placeholder="Name" v-model="CustomerName">
       <input class="input" type="text" placeholder="Phone Number" v-model="PhoneNumber">
       <input class="input" type="textarea" placeholder="Note" v-model="Note">
-      <h3>ลูกค้าที่ทำการจองต้องจ่ายเงินมัดจำ 100 .- (สามารถนำมาเป็นส่วนลดค่าอาหารได้)</h3>
+      <h6 class="title is-6">ลูกค้าที่ทำการจองต้องจ่ายเงินมัดจำ 100 .- (สามารถนำมาเป็นส่วนลดค่าอาหารได้)</h6>
       <button class="button" v-on:click="WritePayment()">Payment</button>
     </section>
 
@@ -61,6 +61,7 @@ export default {
       PhoneNumber: '',
       Note: '',
       SelectedSlot: {},
+      SelectedTable: '',
       TableKey: '',
       TableName: ''
     }
@@ -106,10 +107,12 @@ export default {
         })
       })
     },
-    SetSelectedSlotData: function (SelectedSlot, id, TableName) {
+    SetSelectedSlotData: function (SelectedSlot, id, TableName, TableSeatNumber) {
       this.SelectedSlot = SelectedSlot
       this.TableKey = id
       this.TableName = TableName
+      this.SelectedTable = TableSeatNumber
+      console.log(this.SelectedTable)
     }
   },
   components: {HelloWorld, TableCard}
