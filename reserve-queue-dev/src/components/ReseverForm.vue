@@ -28,11 +28,13 @@
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
     <section class="inputForm">
-      <input class="input is-primary" type="text" placeholder="Name" v-model="CustomerName">
-      <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
-      <input class="input is-primary" type="textarea" placeholder="Note" v-model="Note">
-      <button class="button is-primary" type="primary" size="large" v-on:click="WritePayment()">Payment</button>
+      <input class="input" type="text" placeholder="Name" v-model="CustomerName">
+      <input class="input" type="text" placeholder="Phone Number" v-model="PhoneNumber">
+      <input class="input" type="textarea" placeholder="Note" v-model="Note">
+      <h3>ลูกค้าที่ทำการจองต้องจ่ายเงินมัดจำ 100 .- (สามารถนำมาเป็นส่วนลดค่าอาหารได้)</h3>
+      <button class="button" v-on:click="WritePayment()">Payment</button>
     </section>
+
   </div>
 
 </template>
@@ -146,10 +148,13 @@ export default {
 .input{
   width: 100% ;
   margin: 8px 0 8px 0;
+  border-color: #333c4a;
 }
 
 .button {
   margin: 15px 0 0 0 ;
+  background-color: #333c4a;
+  color: white;
 }
 
 .magin {

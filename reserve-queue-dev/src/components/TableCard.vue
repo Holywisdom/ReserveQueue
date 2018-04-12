@@ -18,7 +18,7 @@
           </p>
         </div>
         <div class="checkbox">
-          <button class="button is-primary is-small" v-on:click="ModalOpen">Reserve</button>
+          <button class="button is-small" v-on:click="ModalOpen">Reserve</button>
         </div>
       </div>
     </article>
@@ -85,6 +85,8 @@ export default {
 .button{
   display: flex ;
   flex-direction: row-reverse ;
+  background-color: #333c4a;
+  color: white;
 }
 
 </style>
