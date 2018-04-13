@@ -9,9 +9,9 @@
       <div class="content">
         <div class="columns is-multiline is-mobile">
           <div class="column is-half" v-for="(value, key) in slot" v-bind:key=key>
-            <a class="button is-black" v-if="value === true">{{time[key]}}</a>
+            <a class="button is-danger" v-if="value === true">{{time[key]}}</a>
             <a class="button is-light" v-if="value === false" v-on:click="Select(key)">{{time[key]}}</a>
-            <a class="button is-primary" v-if="value === 'selected'" v-on:click="UnSelect(key)">{{time[key]}}</a>
+            <a class="button " v-bind:style="{ color: 'white' , 'background-color': '#333c4a' }" v-if="value === 'selected'" v-on:click="UnSelect(key)">{{time[key]}}</a>
           </div>
         </div>
       </div>
