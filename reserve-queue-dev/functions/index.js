@@ -25,8 +25,7 @@ paypal.configure({
   client_secret: functions.config().paypal.client_secret // run: firebase functions:config:set paypal.client_secret="yourPaypalClientSecret"
 });
 
-function ShothandSlot(SelectedSlot) {
-
+function ShothandSlot (SelectedSlot) {
   const time = {
     'slot01': '08:00-09:30',
     'slot02': '09:30-11:00',
@@ -40,61 +39,55 @@ function ShothandSlot(SelectedSlot) {
   }
 
   var key = Object.keys(SelectedSlot)
+  key.sort()
+  const list = key.map(x => parseInt(x.slice(-2)))
 
-  const list = key.map(x => parseInt(x.slice(-2)));
-
-  function minus(x, y) {
-      if (y - x == 1) {
-          return true
-      }
-      else {
-          return false
-      }
+  function minus (x, y) {
+    if (y - x === 1) {
+      return true
+    } else {
+      return false
+    }
   }
 
-  function sliceString (first,last) {
-      return time[first].slice(0,6) + time[last].slice(-5)
+  function sliceString (first, last) {
+    return time[first].slice(0, 6) + time[last].slice(-5)
   }
 
   var state = false
 
-  var start_num = ''
-  var end_num = []
+  var startNum = ''
+  var endNum = []
 
   for (var i = 0; i < list.length; i++) {
-      if (minus(list[i], list[i + 1]) == true) {
-          if (state == false) {
-              start_num = list[i]
-              state = true
-          }
+    if (minus(list[i], list[i + 1]) === true) {
+      if (state === false) {
+        startNum = list[i]
+        state = true
       }
-      else {
-          if (start_num == '') {
-              end_num.push(list[i])
-          }
-          else {
-              end_num.push([start_num,list[i]])
-          }
-
-          state = false
-          start_num = ''
+    } else {
+      if (startNum === '') {
+        endNum.push(list[i])
+      } else {
+        endNum.push([startNum, list[i]])
       }
+      state = false
+      startNum = ''
+    }
   }
 
-  SlotTime = []
+  var SlotTime = []
 
-  end_num.forEach(slot => {
-      if (slot.length > 1) {
-          var text_first =  `slot0${slot[0]}`
-          var text_last =  `slot0${slot[1]}`
-          SlotTime.push(sliceString(text_first,text_last))
-      }
-      else {
-          var text = `slot0${slot}`
-          SlotTime.push(time[text])
-      }
+  endNum.forEach(slot => {
+    if (slot.length > 1) {
+      var textFirst = `slot0${slot[0]}`
+      var textLast = `slot0${slot[1]}`
+      SlotTime.push(sliceString(textFirst, textLast))
+    } else {
+      var text = `slot0${slot}`
+      SlotTime.push(time[text])
+    }
   })
-
   return SlotTime
 }
 

@@ -112,7 +112,73 @@ export default {
       this.TableKey = id
       this.TableName = TableName
       this.SelectedTable = TableSeatNumber
+      console.log(this.ShothandSlot(this.SelectedSlot))
       console.log(this.SelectedTable)
+    },
+    ShothandSlot: function (SelectedSlot) {
+      const time = {
+        'slot01': '08:00-09:30',
+        'slot02': '09:30-11:00',
+        'slot03': '11:00-12:30',
+        'slot04': '12:30-14:00',
+        'slot05': '14:00-15:30',
+        'slot06': '15:30-17:00',
+        'slot07': '17:00-18:30',
+        'slot08': '18:30-20:00',
+        'slot09': '20:00-21:30'
+      }
+
+      var key = Object.keys(SelectedSlot)
+      key.sort()
+      const list = key.map(x => parseInt(x.slice(-2)))
+
+      function minus (x, y) {
+        if (y - x === 1) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      function sliceString (first, last) {
+        return time[first].slice(0, 6) + time[last].slice(-5)
+      }
+
+      var state = false
+
+      var startNum = ''
+      var endNum = []
+
+      for (var i = 0; i < list.length; i++) {
+        if (minus(list[i], list[i + 1]) === true) {
+          if (state === false) {
+            startNum = list[i]
+            state = true
+          }
+        } else {
+          if (startNum === '') {
+            endNum.push(list[i])
+          } else {
+            endNum.push([startNum, list[i]])
+          }
+          state = false
+          startNum = ''
+        }
+      }
+
+      var SlotTime = []
+
+      endNum.forEach(slot => {
+        if (slot.length > 1) {
+          var textFirst = `slot0${slot[0]}`
+          var textLast = `slot0${slot[1]}`
+          SlotTime.push(sliceString(textFirst, textLast))
+        } else {
+          var text = `slot0${slot}`
+          SlotTime.push(time[text])
+        }
+      })
+      return SlotTime
     }
   },
   components: {HelloWorld, TableCard}
