@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            xxx Restaurant
+            The barn Restaurant
           </h1>
           <h2 class="subtitle">
             Queue List
