@@ -33,7 +33,7 @@
       <input class="input" type="text" placeholder="Phone Number" v-model="PhoneNumber">
       <input class="input" type="textarea" placeholder="Note" v-model="Note">
       <h6 class="title is-6">ลูกค้าที่ทำการจองต้องจ่ายเงินมัดจำ 100 .- (สามารถนำมาเป็นส่วนลดค่าอาหารได้)</h6>
-      <button class="button" v-on:click="WritePayment()">Payment</button>
+      <button class="button" v-on:click="WritePayment()">Resever</button>
     </section>
 
   </div>
