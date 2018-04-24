@@ -148,6 +148,15 @@ export default {
 
 .hero {
   width: 100% !important ;
+  background-color: #333c4a;
+}
+
+.title {
+  color: white;
+}
+
+.subtitle {
+  color: white;
 }
 
 </style>
