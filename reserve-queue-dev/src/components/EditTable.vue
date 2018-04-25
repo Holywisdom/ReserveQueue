@@ -6,7 +6,7 @@
       <input class="input is-primary" type="text" placeholder="Table Seat Number" v-model="TableSeatNumber">
       <input class="input is-primary" type="text" placeholder="Table Description" v-model="TableDescription">
       <input class="input is-primary" type="text" placeholder="Image Link" v-model="ImagePath">
-      <button class="button is-primary" type="primary" size="large" v-on:click="EditTable">Edit</button>
+      <button class="button" type="primary" size="large" v-on:click="EditTable">Edit</button>
     </section>
   </div>
 </template>
@@ -75,6 +75,12 @@ export default {
 .input{
   width: 100% ;
   margin: 8px 0 8px 0;
+  border-color: #333c4a;
+}
+
+.button {
+  background-color: #333c4a;
+  color: white;
 }
 
 </style>
