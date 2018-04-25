@@ -8,7 +8,7 @@
       <input class="input is-primary" type="text" placeholder="Name" v-model="Name">
       <input class="input is-primary" type="text" placeholder="Phone Number" v-model="PhoneNumber">
       <input class="input is-primary" type="text" placeholder="Note" v-model="Note">
-      <button class="button is-primary" v-on:click="EditQueue">Edit</button>
+      <button class="button" v-on:click="EditQueue">Edit</button>
     </section>
   </div>
 </template>
@@ -80,6 +80,12 @@ export default {
 .input{
   width: 100% ;
   margin: 8px 0 8px 0;
+  border-color: #333c4a;
+}
+
+.button {
+  background-color: #333c4a;
+  color: white;
 }
 
 </style>
