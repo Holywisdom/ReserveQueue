@@ -88,6 +88,7 @@ export default {
 .input{
   width: 100% ;
   margin: 8px 0 8px 0;
+  border-color: #333c4a;
 }
 
 .hero {
@@ -98,6 +99,7 @@ export default {
 .button {
   margin-top: 4px;
   background-color: #333c4a;
+  color: white;
 }
 
 .title {
