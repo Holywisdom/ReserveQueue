@@ -100,4 +100,12 @@ export default {
   background-color: #333c4a;
 }
 
+.title {
+  color: white;
+}
+
+.subtitle {
+  color: white;
+}
+
 </style>
