@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            The barn Restaurant
+            The Barn Restaurant
           </h1>
           <h2 class="subtitle">
             Table List

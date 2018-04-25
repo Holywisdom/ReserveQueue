@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Welcome to the barn Restaurant
+            Welcome to the Barn Restaurant
           </h1>
           <h2 class="subtitle">
             Resever Queue System
