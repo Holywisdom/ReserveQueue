@@ -27,7 +27,7 @@
       </div>
     </div>
     <h1 class="title is-3" id="DetailHeader">Your Detail</h1>
-    <h4 class="title is-4" v-if="this.TableName">คุณได้ทำการจองโต๊ะ {{this.TableName}} {{this.SelectedTable}} ที่นั่ง ณ เวลา {{this.ConcludeSlot}}</h4>
+    <h4 class="title is-4" v-if="this.TableName">คุณได้ทำการจองโต๊ะ {{this.TableName}} จำนวน {{this.SelectedTable}} ที่นั่ง {{`วันที่ ${this.DateTime.getDate()}/${this.DateTime.getMonth()+1}/${this.DateTime.getFullYear()+543}`}} ณ เวลา {{this.ConcludeSlot}}</h4>
     <section class="inputForm">
       <input class="input" type="text" placeholder="Name" v-model="CustomerName">
       <input class="input" type="text" placeholder="Phone Number" v-model="PhoneNumber">
@@ -64,7 +64,8 @@ export default {
       SelectedTable: '',
       ConcludeSlot: '',
       TableKey: '',
-      TableName: ''
+      TableName: '',
+      DateTime: new Date()
     }
   },
   firestore () {
