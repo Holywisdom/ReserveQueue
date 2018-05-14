@@ -54,7 +54,8 @@ export default {
   },
   firestore () {
     return {
-      Slot: db.collection('Slot')
+      Slot: db.collection('Slot'),
+      WaitingSlot: db.collection('WaitingSlot')
     }
   },
   methods: {
@@ -75,13 +76,13 @@ export default {
       this.slot[key] = 'selected'
       this.select[key] = 'wating'
       this.selectTmp[key] = 'selected'
-      this.SetWatingSlot()
+      this.SetWatingSlot(key)
     },
     UnSelect: function (key) {
       this.slot[key] = 'empty'
       this.select[key] = 'empty'
       this.selectTmp[key] = 'empty'
-      this.UnSetWatingSlot()
+      this.UnSetWatingSlot(key)
     },
     GetSlotData: function () {
       this.$firestore.Slot.doc(this.id).onSnapshot(querySnapshot => {
@@ -91,15 +92,29 @@ export default {
         })
       })
     },
-    SetWatingSlot: function () {
+    SetWatingSlot: function (key) {
       this.$firestore.Slot.doc(this.id).set({
         ...this.select
-      }, { merge: true })
+      }, { merge: true }).then(() => {
+        var payload = {}
+        payload[key] = new Date()
+        this.$firestore.WaitingSlot.doc(this.id).set({
+          ...payload
+        }, { merge: true })
+      })
     },
-    UnSetWatingSlot: function () {
+    UnSetWatingSlot: function (key) {
       this.$firestore.Slot.doc(this.id).set({
         ...this.select
-      }, { merge: true })
+      }, { merge: true }).then(() => {
+        this.$firestore.WaitingSlot.doc(this.id).get().then(querySnapshot => {
+          var payload = querySnapshot.data()
+          delete payload[key]
+          this.$firestore.WaitingSlot.doc(this.id).set({
+            ...payload
+          })
+        })
+      })
     },
     WriteSelectSlot: function () {
       this.$firestore.Slot.doc(this.id).set({
