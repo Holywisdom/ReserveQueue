@@ -19,7 +19,7 @@
     </div>
     <footer class="card-footer">
       <a href="#DetailHeader" class="card-footer-item" v-on:click="Done">Done</a>
-      <a href="" class="card-footer-item" v-on:click="ModalClose">Cancel</a>
+      <a class="card-footer-item" v-on:click="ModalClose">Cancel</a>
     </footer>
   </div>
 </template>
@@ -59,7 +59,14 @@ export default {
   },
   methods: {
     ModalClose: function () {
-      this.$emit('Modal')
+      Object.keys(this.selectTmp).map(key => {
+        this.selectTmp[key] = 'empty'
+      })
+      this.$firestore.Slot.doc(this.id).set({
+        ...this.selectTmp
+      }, { merge: true }).then(() => {
+        this.$emit('Modal')
+      })
     },
     Done: function () {
       this.$emit('Selected', this.select)
