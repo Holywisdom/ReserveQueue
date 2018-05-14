@@ -211,8 +211,12 @@ exports.process = functions.https.onRequest((req, res) => {
         return Promise.resolve(getPaymentData).then(result => {
           var DataSnapshot = result.data()
           const { Name, PhoneNumber, TableSeatNumber, SelectedSlot, Note, TableKey, TableName, PaymentTimestamp } = DataSnapshot
+          var Slot = SelectedSlot
+          Object.keys(Slot).map(key => {
+            Slot[key] = 'reserved'
+          })
           SlotRef.doc(TableKey).set(
-            SelectedSlot
+            Slot
           ,{merge: true}
           )
           ShothandSlot(SelectedSlot).forEach(SlotItem => {
