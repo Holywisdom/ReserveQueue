@@ -9,8 +9,9 @@
       <div class="content">
         <div class="columns is-multiline is-mobile">
           <div class="column is-half" v-for="(value, key) in slot" v-bind:key=key>
-            <a class="button is-danger" v-if="value === true">{{time[key]}}</a>
-            <a class="button is-light" v-if="value === false" v-on:click="Select(key)">{{time[key]}}</a>
+            <a class="button is-danger" v-if="value === 'reserved'">{{time[key]}}</a>
+            <a class="button is-warning" v-if="value === 'wating'">{{time[key]}}</a>
+            <a class="button is-light" v-if="value === 'empty'" v-on:click="Select(key)">{{time[key]}}</a>
             <a class="button " v-bind:style="{ color: 'white' , 'background-color': '#333c4a' }" v-if="value === 'selected'" v-on:click="UnSelect(key)">{{time[key]}}</a>
           </div>
         </div>
@@ -35,7 +36,7 @@ export default {
   },
   data () {
     return {
-      slot: [],
+      slot: {},
       time: {
         'slot01': '08:00-09:30',
         'slot02': '09:30-11:00',
@@ -47,7 +48,8 @@ export default {
         'slot08': '18:30-20:00',
         'slot09': '20:00-21:30'
       },
-      select: {}
+      select: {},
+      selectTmp: {}
     }
   },
   firestore () {
@@ -64,16 +66,33 @@ export default {
     },
     Select: function (key) {
       this.slot[key] = 'selected'
-      this.select[key] = true
+      this.select[key] = 'wating'
+      this.selectTmp[key] = 'selected'
+      this.SetWatingSlot()
     },
     UnSelect: function (key) {
-      this.slot[key] = false
-      delete this.select[key]
+      this.slot[key] = 'empty'
+      this.select[key] = 'empty'
+      this.selectTmp[key] = 'empty'
+      this.UnSetWatingSlot()
     },
     GetSlotData: function () {
-      this.$firestore.Slot.doc(this.id).get().then(querySnapshot => {
+      this.$firestore.Slot.doc(this.id).onSnapshot(querySnapshot => {
         this.slot = querySnapshot.data()
+        Object.keys(this.selectTmp).map(key => {
+          this.slot[key] = this.selectTmp[key]
+        })
       })
+    },
+    SetWatingSlot: function () {
+      this.$firestore.Slot.doc(this.id).set({
+        ...this.select
+      }, { merge: true })
+    },
+    UnSetWatingSlot: function () {
+      this.$firestore.Slot.doc(this.id).set({
+        ...this.select
+      }, { merge: true })
     },
     WriteSelectSlot: function () {
       this.$firestore.Slot.doc(this.id).set({
