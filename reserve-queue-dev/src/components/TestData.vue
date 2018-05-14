@@ -86,15 +86,15 @@ export default {
     },
     WriteSlotData: function () {
       var slot = {
-        'slot01': false,
-        'slot02': false,
-        'slot03': false,
-        'slot04': false,
-        'slot05': false,
-        'slot06': false,
-        'slot07': false,
-        'slot08': false,
-        'slot09': false
+        'slot01': 'empty',
+        'slot02': 'empty',
+        'slot03': 'empty',
+        'slot04': 'empty',
+        'slot05': 'empty',
+        'slot06': 'empty',
+        'slot07': 'empty',
+        'slot08': 'empty',
+        'slot09': 'empty'
       }
       this.Seat.map(item => {
         this.$firestore.Slot.doc(item).set(
