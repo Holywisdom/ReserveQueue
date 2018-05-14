@@ -114,6 +114,7 @@ export default {
       this.TableKey = id
       this.TableName = TableName
       this.SelectedTable = TableSeatNumber
+      this.ConcludeSlot = ''
 
       this.ShothandSlot(this.SelectedSlot).forEach(time => {
         this.ConcludeSlot = this.ConcludeSlot + ' ' + time
