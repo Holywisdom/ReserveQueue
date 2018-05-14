@@ -86,7 +86,7 @@ export default {
         TableName: this.TableName,
         PaymentTimestamp: new Date()
       }).then(res => {
-        var Price = '5'
+        var Price = '100'
         var Description = 'Seat ' + this.SeatPick + '_' + this.TableName
         var ReferenceId = this.TableKey
         var SoftDescriptor = this.PhoneNumber
