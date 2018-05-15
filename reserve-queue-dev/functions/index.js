@@ -243,6 +243,62 @@ exports.process = functions.https.onRequest((req, res) => {
   // .then(r => console.info('promise: ', r));
 });
 
+exports.WaitingSlot = functions.https.onRequest((req, res) => {
+  const WaitingSlotRef1 = admin.firestore().collection('WaitingSlot').doc('1x9JWDk0DcpIump1Xvsh')
+  const WaitingSlotRef2 = admin.firestore().collection('WaitingSlot').doc('5LBPP9CDUTQ0H1EOxg2F')
+  const WaitingSlotRef3 = admin.firestore().collection('WaitingSlot').doc('9nuGPOnzbGPd20m4TMTb')
+  const WaitingSlotRef4 = admin.firestore().collection('WaitingSlot').doc('FvZPiIxomUhBD5odUAar')
+  const WaitingSlotRef5 = admin.firestore().collection('WaitingSlot').doc('Q3m0x75uYUgvBFVBkDyE')
+  const WaitingSlotRef6 = admin.firestore().collection('WaitingSlot').doc('Vrtqxe2iMavlDGSP18pp')
+  const WaitingSlotRef7 = admin.firestore().collection('WaitingSlot').doc('WAZ3xd3usAkelLbBFqLT')
+  const WaitingSlotRef8 = admin.firestore().collection('WaitingSlot').doc('Zcf6qq1yDWf1SoWjabxL')
+  const WaitingSlotRef9 = admin.firestore().collection('WaitingSlot').doc('iIAMz4r2tcyTXzvsQrSl')
+  const WaitingSlotRef10 = admin.firestore().collection('WaitingSlot').doc('pZMLbIg6rPGRMV1WbaIw')
+
+  const WaitingSlotData1 = WaitingSlotRef1.get()
+  const WaitingSlotData2 = WaitingSlotRef2.get()
+  const WaitingSlotData3 = WaitingSlotRef3.get()
+  const WaitingSlotData4 = WaitingSlotRef4.get()
+  const WaitingSlotData5 = WaitingSlotRef5.get()
+  const WaitingSlotData6 = WaitingSlotRef6.get()
+  const WaitingSlotData7 = WaitingSlotRef7.get()
+  const WaitingSlotData8 = WaitingSlotRef8.get()
+  const WaitingSlotData9 = WaitingSlotRef9.get()
+  const WaitingSlotData10 = WaitingSlotRef10.get()
+
+
+  return Promise.all([WaitingSlotData1,WaitingSlotData2,WaitingSlotData3,WaitingSlotData4,WaitingSlotData5,WaitingSlotData6,WaitingSlotData7,WaitingSlotData8,WaitingSlotData9,WaitingSlotData10]).then(result => {
+  // return Promise.resolve(WaitingSlotData1).then(result => {
+    var DataSnapshot1 = result[0].data()
+    var DataSnapshot2 = result[1].data()
+    var DataSnapshot3 = result[2].data()
+    var DataSnapshot4 = result[3].data()
+    var DataSnapshot5 = result[4].data()
+    var DataSnapshot6 = result[5].data()
+    var DataSnapshot7 = result[6].data()
+    var DataSnapshot8 = result[7].data()
+    var DataSnapshot9 = result[8].data()
+    var DataSnapshot10 = result[9].data()
+
+    console.log(DataSnapshot1)
+    res.status(200).send("WaitingSlot 1 ")
+  })
+})
+
+exports.WaitingSlot2 = functions.https.onRequest((req, res) => {
+  const WaitingSlotRef1 = admin.firestore().collection('WaitingSlot').doc('Q3m0x75uYUgvBFVBkDyE')
+  const WaitingSlotData1 = WaitingSlotRef1.get()
+
+  return Promise.resolve(WaitingSlotData1).then(result => {
+    var DataSnapshot1 = result.data()
+    var now = new Date()
+    var timediff =  Date.parse(now) - Date.parse(DataSnapshot1['slot02'])
+
+    console.log(timediff)
+    res.status(200).send("Work !")
+  })
+})
+
 // SMS
 
 // ACbdb6be10c8e23b59bb6e430b9a760344
