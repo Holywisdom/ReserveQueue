@@ -244,6 +244,7 @@ exports.process = functions.https.onRequest((req, res) => {
 });
 
 exports.WaitingSlot = functions.https.onRequest((req, res) => {
+
   const WaitingSlotRef1 = admin.firestore().collection('WaitingSlot').doc('1x9JWDk0DcpIump1Xvsh')
   const WaitingSlotRef2 = admin.firestore().collection('WaitingSlot').doc('5LBPP9CDUTQ0H1EOxg2F')
   const WaitingSlotRef3 = admin.firestore().collection('WaitingSlot').doc('9nuGPOnzbGPd20m4TMTb')
@@ -268,34 +269,126 @@ exports.WaitingSlot = functions.https.onRequest((req, res) => {
 
 
   return Promise.all([WaitingSlotData1,WaitingSlotData2,WaitingSlotData3,WaitingSlotData4,WaitingSlotData5,WaitingSlotData6,WaitingSlotData7,WaitingSlotData8,WaitingSlotData9,WaitingSlotData10]).then(result => {
-  // return Promise.resolve(WaitingSlotData1).then(result => {
-    var DataSnapshot1 = result[0].data()
-    var DataSnapshot2 = result[1].data()
-    var DataSnapshot3 = result[2].data()
-    var DataSnapshot4 = result[3].data()
-    var DataSnapshot5 = result[4].data()
-    var DataSnapshot6 = result[5].data()
-    var DataSnapshot7 = result[6].data()
-    var DataSnapshot8 = result[7].data()
-    var DataSnapshot9 = result[8].data()
-    var DataSnapshot10 = result[9].data()
 
-    console.log(DataSnapshot1)
-    res.status(200).send("WaitingSlot 1 ")
-  })
-})
+    var DataSnapshot1 = result['0'].data()
+    var DataSnapshot2 = result['1'].data()
+    var DataSnapshot3 = result['2'].data()
+    var DataSnapshot4 = result['3'].data()
+    var DataSnapshot5 = result['4'].data()
+    var DataSnapshot6 = result['5'].data()
+    var DataSnapshot7 = result['6'].data()
+    var DataSnapshot8 = result['7'].data()
+    var DataSnapshot9 = result['8'].data()
+    var DataSnapshot10 = result['9'].data()
 
-exports.WaitingSlot2 = functions.https.onRequest((req, res) => {
-  const WaitingSlotRef1 = admin.firestore().collection('WaitingSlot').doc('Q3m0x75uYUgvBFVBkDyE')
-  const WaitingSlotData1 = WaitingSlotRef1.get()
-
-  return Promise.resolve(WaitingSlotData1).then(result => {
-    var DataSnapshot1 = result.data()
     var now = new Date()
-    var timediff =  Date.parse(now) - Date.parse(DataSnapshot1['slot02'])
 
-    console.log(timediff)
-    res.status(200).send("Work !")
+    // console.log("Now : " , Date.parse(now))
+
+    // console.log(Date.parse(now) - Date.parse(DataSnapshot1[slotKey]))
+    // console.log(Date.parse(DataSnapshot1[slotKey]))
+
+    Object.keys(DataSnapshot1).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot1[slotKey]) >= 360000) {
+        delete DataSnapshot1[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('1x9JWDk0DcpIump1Xvsh').set(payload, { merge: true })
+      }
+      WaitingSlotRef1.set(DataSnapshot1)
+    })
+
+    Object.keys(DataSnapshot2).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot2[slotKey]) >= 360000) {
+        delete DataSnapshot2[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('5LBPP9CDUTQ0H1EOxg2F').set(payload, { merge: true })
+      }
+      WaitingSlotRef2.set(DataSnapshot2)
+    })
+
+    Object.keys(DataSnapshot3).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot3[slotKey]) >= 360000) {
+        delete DataSnapshot3[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('9nuGPOnzbGPd20m4TMTb').set(payload, { merge: true })
+      }
+      WaitingSlotRef3.set(DataSnapshot3)
+    })
+
+    Object.keys(DataSnapshot4).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot4[slotKey]) >= 360000) {
+        delete DataSnapshot4[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('FvZPiIxomUhBD5odUAar').set(payload, { merge: true })
+      }
+      WaitingSlotRef4.set(DataSnapshot4)
+    })
+
+    Object.keys(DataSnapshot5).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot5[slotKey]) >= 360000) {
+        delete DataSnapshot5[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('Q3m0x75uYUgvBFVBkDyE').set(payload, { merge: true })
+      }
+      WaitingSlotRef5.set(DataSnapshot5)
+    })
+
+    Object.keys(DataSnapshot6).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot6[slotKey]) >= 360000) {
+        delete DataSnapshot6[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('Vrtqxe2iMavlDGSP18pp').set(payload, { merge: true })
+      }
+      WaitingSlotRef6.set(DataSnapshot6)
+    })
+
+    Object.keys(DataSnapshot7).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot7[slotKey]) >= 360000) {
+        delete DataSnapshot7[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('WAZ3xd3usAkelLbBFqLT').set(payload, { merge: true })
+      }
+      WaitingSlotRef7.set(DataSnapshot7)
+    })
+
+    Object.keys(DataSnapshot8).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot8[slotKey]) >= 360000) {
+        delete DataSnapshot8[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('Zcf6qq1yDWf1SoWjabxL').set(payload, { merge: true })
+      }
+      WaitingSlotRef8.set(DataSnapshot8)
+    })
+
+    Object.keys(DataSnapshot9).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot9[slotKey]) >= 360000) {
+        delete DataSnapshot9[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('iIAMz4r2tcyTXzvsQrSl').set(payload, { merge: true })
+      }
+      WaitingSlotRef9.set(DataSnapshot9)
+    })
+
+    Object.keys(DataSnapshot10).forEach(slotKey => {
+      if (Date.parse(now) - Date.parse(DataSnapshot10[slotKey]) >= 360000) {
+        delete DataSnapshot10[slotKey]
+        var payload = {}
+        payload[slotKey] = 'empty'
+        admin.firestore().collection('Slot').doc('pZMLbIg6rPGRMV1WbaIw').set(payload, { merge: true })
+      }
+      WaitingSlotRef10.set(DataSnapshot10)
+    })
+
+    res.status(200).send('Work !')
   })
 })
 
